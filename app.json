@@ -1,0 +1,65 @@
+{
+  "name": "QUEEN-DIANA",
+  "description": "QUEEN-DIANA  - Makes it easy and fun to use Whatsapp.",
+  "logo": "https://telegra.ph/file/3217c19d381ae34b38012.jpg",
+  "keywords": ["whatsapp", "userbot", "Queen Diana", "md", "bot", "api", "ai"],
+  "repository": "https://github.com/diabykavi/diamydia",
+  "website":   "https://Queen Diana.cf/",
+  "success_url": "https://Queen Diana.cf/",
+  "stack": "container",
+  "env": {
+
+      
+
+"DIANA_SESSION": {"description": "if you don't have Bot session, scan qr using below url \n https://replit.com/@kavishkaya/Queen-Diana-MD?v=1?outputonly=1&lite=1","value": "" , "required": true },
+    
+
+
+"VIDEO_DOWNLOADING": {"description": "You can change video downloading massage using this","value": "*🎭Downloading Your Video*" , "required": false },
+"VIDEO_UPLOADING": {"description": "You can change video uploading massage using this","value": "*🚀Uploading Your Video*" , "required": false },
+"SONG_DOWNLOADING": {"description": "You can change music downloading massage using this","value": "*◦•●◉✿Downloading Your Song✿◉●•◦*" , "required": false },
+"SONG_UPLOADING": {"description": "You can change music uploading massage using this","value": "*◦•●◉✿Uploading Your Song✿◉●•◦*" , "required": false },
+"FOOTER": {"description": "","value": "Queen Diana" , "required": false },
+"STICKER_PACK": {"description": "You can change sticker pack name","value": "QUEEN DIANA" , "required": false },
+"STICKER_AUTHOR": {"description": "You can change sticker pack authour","value": "CREATED BY QUEEN DIANA👸" , "required": false },
+"CAPTION": {"description": "You can change image/video caption using this","value": "*👸Genarated by Queen Diana👸*" , "required": false },
+"ANTIBAD_WORD": {"description": "When you tern on this option, any person remove automatically using bad word","value": "false" , "required": false },
+"AUTO_REPLY": {"description": "Send reply to some massages automatically","value": "false" , "required": false },
+"STICKER_REPLY": {"description": "Send sticker reply to some massages automatically","value": "false" , "required": false },
+"ANTI_LINK": {"description": "When you tern on this option, any person remove automatically using any link","value": "false" , "required": false },
+"TIME_ZONE": {"description": "Enter your country time zone.id don't know this pass this","value": "Asia/Colombo" , "required": false },
+"AUTO_BIO": {"description": "this can change your profile detail automatically","value": "false" , "required": false },
+"OWNER_NAME": {"description": "","value": "Kavishka Sandaruwan" , "required": false },
+"LANGUAGE": {"description": "You can change your bot language using this. \n for Sinhala use SI \n for English use EN","value": "EN" , "required": false },
+"ALIVE_MESSAGE": {"description": "you can change your alive massage","value": "```👋 Hey there, I'm alive now```  \n\n_Version:_ ```v5.0.0``` \n\n _POWERED BY KAVIYAAH_" , "required": false },
+"ALIVE_LOGO": {"description": "you can change your alive photo","value": "https://telegra.ph/file/3217c19d381ae34b38012.jpg" , "required": false },
+"KICKME_MESSAGE": {"description": "This massage using when you leaving group using '.kickme' command","value": " ```🤠 its time to leave bye bye``` " , "required": false },
+"BLOCK_CHAT": {"description": "Using this option, \n not sending bot's massages to you entered numbers","value": "false" , "required": false },
+"WELCOME_GIF": {"description": "Fill here any gif link if you selected gif as WELCOME","value": "https://i.imgur.com/nErXUGj.mp4" , "required": false },
+"GOOD_BYE_GIF": {"description": "Fill here any gif link if you selected gif as GOOG BYE ","value": "https://i.imgur.com/Z1jCYGN.mp4" , "required": false },
+"BOT_NAME": {"description": "You can Change bot name using this","value": "Queen Diana" , "required": false },
+"NO_LOG": {"description": "Set true if you don't want to see error log.","value": "false" , "required": false },
+"BLOCK_MESSAGE": {"description": "This massage using you block person using '.block' ","value": "*Blocked❌*" , "required": false },
+"UNBLOCK_MESSAGE": {"description": "This massage using you unblock person using '.unblock'","value": "*Unblocked✅*" , "required": false },
+"MUTE_MESSAGE": {"description": "This massage working when you using '.mute' command","value": "*Mute group🔇*" , "required": false },
+"UNMUTE_MESSAGE": {"description": "This massage working when you using '.unmute' command","value": "*Unmute group🔊*" , "required": false },
+"PROMOTE_MESSAGE": {"description": "This massage working you when give admin to person using '.promote'","value": " *Is admin now*" , "required": false },
+"DEMOTE_MESSAGE": {"description": "This massage working when you remove admin from person using '.demote'","value": " *Is not a admin now*" , "required": false },
+"BAN_MESSAGE": {"description": "This massage working when you remove person from group using '.kick'","value": " *Reomove from the group✅*" , "required": false },
+"ADD_MESSAGE": {"description": "This massage working when you add person to group using '.add'","value": " *Added to the group✅*" , "required": false },
+"INBOX_NOT_WORKING": {"description": "","value": "false" , "required": false },
+"WORK_TYPE": {"description": "","value": "public" , "required": false },
+"PANEL_COMMAND": {"description": "","value": "menu" , "required": false },
+"HANDLERS": {"description": "","value": "^[.!;]" , "required": false },
+"SEND_READ": {"description": "","value": "true" , "required": false },
+"HEROKU": { "description": "If it is running in Heroku, type true","value": "true" , "required": true},
+"HEROKU_API_KEY": { "description": "Heroku API key","value": "" , "required": true},
+"HEROKU_APP_NAME": { "description": "Enter you entered Heroku app name above","value": "" , "required": true},
+"REMOVE_BG_API_KEY": {"description": "log https://www.remove.bg web site and get API key using this link --> https://www.remove.bg/dashboard#api-key","value": "" , "required": false },
+"NO_ONLINE": {"description": "Type true if you don't want to appear online.","value": "true" , "required": false },
+"SUDO": {"description": "","value": "" , "required": false }
+
+},
+"addons": [{"plan": "heroku-postgresql"}],
+"buildpacks": [{"url": "heroku-community/apt"}]
+}
