@@ -13,8 +13,8 @@ const stpack = config.STPACK
 const Config = require('../config');
 let WORKN = Config.WORKTYPE == 'public' ? false : ''
 
-
-evt.getCMD({pattern: 'sticker$', fromMe: WORKN, deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
+if (Config.WORKTYPE == 'public') {
+evt.getCMD({pattern: 'sticker$', fromMe: true, deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
 
     if (message.reply_message === false) return await message.client.sendMessage(message.jid , {text: Lang.NEED_REPLY} , { quoted: message.data } );
 
@@ -94,3 +94,4 @@ return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSyn
 
 
  }))
+}

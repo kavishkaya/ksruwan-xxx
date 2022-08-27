@@ -16,8 +16,8 @@ const Config = require('../config');
 let WORKN = Config.WORKTYPE == 'public' ? false : ''
 
 
-
-evt.getCMD({pattern: 'removebg$', fromMe: WORKN, deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
+if (Config.WORKTYPE == 'public') {
+evt.getCMD({pattern: 'removebg$', fromMe: true, deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
 
     if (message.reply_message === false || message.reply_message.image === false) return await message.client.sendMessage(message.jid, {text:Lang.NEED_PHOTO}, {quoted: message.data} );  
 
@@ -51,3 +51,4 @@ await fs.unlinkSync(imglocate)
 
 
 })) 
+}

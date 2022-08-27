@@ -7,8 +7,8 @@ const Lang = Language.getString('youtube');
 const Config = require('../config');
 let WORKN = Config.WORKTYPE == 'public' ? false : ''
 
-
-diana.getCMD({pattern: 'yt (.*)', fromMe: WORKN, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+if (Config.WORKTYPE == 'public'){
+diana.getCMD({pattern: 'yt (.*)', fromMe: true, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
         await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
         try {
@@ -61,7 +61,7 @@ Select one to download video or song
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
 }));
 
-diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: WORKN,NoListCmd: true}, (async (message, match) => {
+diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: true,NoListCmd: true}, (async (message, match) => {
 
         if (!match[1]) return 
 
@@ -91,3 +91,4 @@ SELECT YOU NEED RESULT
 
         await message.client.sendMessage(message.jid, buttonMessage, {quoted: message.data})
 }));
+}

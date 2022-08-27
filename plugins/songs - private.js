@@ -10,8 +10,8 @@ const Config = require('../config');
 let WORKN = Config.WORKTYPE == 'public' ? false : ''
 
 
-
-evt.getCMD({pattern: 'song ?(.*)', fromMe: WORKN, deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
+if (Config.WORKTYPE == 'public') {
+evt.getCMD({pattern: 'song ?(.*)', fromMe: true, deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_SONG }, { quoted: message.data } )   
 try{
@@ -111,7 +111,7 @@ const video = await yts( { videoId: vidid } )
 }));
 
 
-evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: WORKN, deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: true, deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
    
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
@@ -128,7 +128,7 @@ evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: WORKN, deleteCommand: false,  NoLis
 
 
 
-evt.getCMD({pattern: 'acsong ?(.*)', fromMe: WORKN, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'acsong ?(.*)', fromMe: true, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
     
@@ -141,3 +141,4 @@ evt.getCMD({pattern: 'acsong ?(.*)', fromMe: WORKN, deleteCommand: false, NoList
    
 
 }));
+}

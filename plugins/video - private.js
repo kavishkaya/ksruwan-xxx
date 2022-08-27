@@ -11,8 +11,8 @@ const Config = require('../config');
 let WORKN = Config.WORKTYPE == 'public' ? false : ''
 
 
-
-evt.getCMD({pattern: 'video ?(.*)', fromMe: WORKN, deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
+if (Config.WORKTYPE == 'public'){ 
+evt.getCMD({pattern: 'video ?(.*)', fromMe: true, deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_VIDEO }, { quoted: message.data } )   
 try{
@@ -114,7 +114,7 @@ const video = await yts( { videoId: vidid } )
 }
 }));
 
-evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: WORKN, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: true, NoListCmd: true}, (async (message, match) => {
 
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -127,7 +127,7 @@ await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, c
 }));
 
 
-evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: WORKN, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: true, NoListCmd: true}, (async (message, match) => {
 
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -140,7 +140,7 @@ await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, c
 }));
 
 
-evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: WORKN, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: true, NoListCmd: true}, (async (message, match) => {
 
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -151,3 +151,4 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted
 await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
 await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
 }));
+}

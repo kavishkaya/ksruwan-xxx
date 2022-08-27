@@ -16,9 +16,9 @@ const lusicode = " "
 const lucodeee = ("  ")
 const Config = require('../config');
 let WORKN = Config.WORKTYPE == 'public' ? false : ''
- 
+if (Config.WORKTYPE == 'private') {
 
-    Diana.getCMD({pattern: 'menu ?(.*)', fromMe: WORKN, NoListCmd: true}, (async (message, match) => {
+    Diana.getCMD({pattern: 'menu ?(.*)', fromMe: true, NoListCmd: true}, (async (message, match) => {
 
         var CMD_HELP = '';
         if (match[1] === '') {

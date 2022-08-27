@@ -5,10 +5,8 @@ const config = require('../config')
 const Language = require('../language');
 const Lang = Language.getString('facebook');
 const Config = require('../config');
-let WORKN = Config.WORKTYPE == 'public' ? false : ''
-
-
-evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: WORKN, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+if (Config.WORKTYPE == 'public') {
+evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: true, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
 const q = match[1];
 
@@ -70,7 +68,7 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted
 
 
 
-evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: WORKN, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: true, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
     const q = match[1];
       
@@ -136,7 +134,7 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: WORKN, deleteCommand: false, No
 
 
 
-    evt.getCMD({pattern: 'fb ?(.*)',fromMe: WORKN, deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
+    evt.getCMD({pattern: 'fb ?(.*)',fromMe: true, deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
 
         const q = match[1];
       
@@ -188,3 +186,5 @@ SELECT YOU NEED VIDEO QUALITY
                 quoted: message.data
         })
 }));  
+
+}
