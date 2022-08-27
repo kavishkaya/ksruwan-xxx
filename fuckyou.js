@@ -194,10 +194,7 @@ plugins.map(async (plugin) => {
             var abc = config.BLOCKCHAT.split(',');
             if (msg.key.remoteJid.includes('@g.us') ? abc.includes(msg.key.remoteJid.split('@')[0]) : abc.includes(msg.participant ? msg.participant.split('@')[0] : msg.key.remoteJid.split('@')[0])) return;
         }
-       if (config.INBOX_NOT) {
-            
-            if (msg.key.remoteJid.includes('@s.whatsapp.net')) return;
-        } 
+
 
         events.commands.map(
         async(command) => {
