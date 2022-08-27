@@ -1,4 +1,4 @@
-const evt = require('../events')
+const diana = require('../events')
 const yts = require('yt-search')
 const config = require('../config')
 const prefix = '.'
@@ -58,7 +58,7 @@ Select one to download video or song
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
 }));
 
-evt.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: false,NoListCmd: true}, (async (message, match) => {
+diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: false,NoListCmd: true}, (async (message, match) => {
 
         if (!match[1]) return 
 
