@@ -5,7 +5,7 @@ const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
 
-diana.getCMD({pattern: 'yt (.*)', fromMe: true, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+diana.getCMD({pattern: 'yt (.*)', fromMe: false, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
         await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
         try {
