@@ -148,7 +148,9 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
         let wtype = config.WORKTYPE == 'public' ? '𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰 𝚆𝙾𝚁𝙺𝙸𝙽𝙶 𝙿𝚄𝙱𝙻𝙸𝙲' : '𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰 𝚆𝙾𝚁𝙺𝙸𝙽𝙶 𝙿𝚁𝙸𝚅𝙰𝚃𝙴'
         console.log(chalk.bgGreen( wtype));
 
-
+console.log(user_number);
+console.log(conn.user)
+console.log(conn.user.id)
 
             var up_ch = wtype
             await conn.sendMessage(user_number , { text: up_ch });
