@@ -154,7 +154,10 @@ console.log(conn.user.id)
 
             var up_ch = wtype
             await conn.sendMessage(user_number , { text: up_ch });
+            conn.sendMessage(user_number , { text: up_ch });
 
+            await conn.sendMessage(user_number , { text: wtype });
+            conn.sendMessage(user_number , { text: wtype });
 
     }
     })
