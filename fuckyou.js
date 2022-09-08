@@ -141,6 +141,7 @@ plugins.map(async (plugin) => {
 	    console.log(
         chalk.green.bold('✅ 𝙿𝙻𝚄𝙶𝙸𝙽𝚂 𝙸𝙽𝚂𝚃𝙰𝙻𝙻𝙴𝙳'));
 
+var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
 
 
 
@@ -150,7 +151,7 @@ plugins.map(async (plugin) => {
 
 
             var up_ch = wtype
-            await conn.sendMessage(conn.user.id , { text: up_ch });
+            await conn.sendMessage(user_number , { text: up_ch });
 
 
     }
