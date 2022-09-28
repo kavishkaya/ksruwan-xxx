@@ -576,6 +576,40 @@
             
             
         },
+
+        "alive":{
+            "ALIVE_DESC": "බොට් ඔන්ලයින් හෝ ඕෆ්ලයින්දැයි බැලීමට"
+          },
+          "facebook":{
+              "NEED_FB_URL": "facebook url එකක් ඇතුලත් කරන්න",
+              "NOT_FB_URL": "එය facebook වීඩියෝ url එකක් නොවේ.\n කරුණාකර වලංගු facebook url එකක් පමණක් ඇතුලත් කරන්න",
+              "CANT_FIND_FB": "```ඔබගේ වීඩියෝව සොයාගත නොහැක:(```",
+              "FB_DESC": "facebook වීඩියෝ බාගත කිරීම"
+  
+          },
+          "youtube":{
+           "SONG_DESC": "YOUTUBE වෙතින් ගීත බාගත කිරීම",
+           "NEED_SONG": "ගීතයේ url එකක් හෝ ගීතයේ නම ඇතුළත් කරන්න \n උදා:- \n   1).song wallerman\n   2).song https://www.youtube.com/watch?v=qP-7GNoDJ5c",
+           "CANT_FIND_SONG": "```සමාවන්න``` \n _*ඔබේ ගීතය සොයාගත නොහැක:(*_",
+           "NEED_URL_SONG": "YOUTUBE ගීතයක url එකක් ඇතුලත් කරන්න",
+           "ONLY_YT_SONG_URL": "ඔබ YOUTUBE ගීතයක හෝ වීඩියෝවක url එකක් පමණක් ඇතුළත් කළ යුතුය ",
+  
+  
+           "VIDEO_DESC": "YOUTUBE වෙතින් වීඩියෝ බාගත කිරීම",
+           "NEED_VIDEO": "වීඩියෝවේ url එකක් හෝ වීඩියෝවේ නම ඇතුලත් කරන්න \n උදා:- \n 1).video wallerman\n 2).video https://www.youtube.com/watch?v=qP-7GNoDJ5c",
+           "CANT_FIND_VIDEO": "```සමාවෙන්න``` \n _*ඔබගේ වීඩියෝව සොයාගත නොහැක:(*_",
+           "NEED_URL_VIDEO": "YOUTUBE වීඩියෝ url එකක් ඇතුලත් කරන්න ",
+           "ONLY_YT_VIDEO_URL": "ඔබ ඇතුළත් කළ යුත්තේ YOUTUBE වීඩියෝ url පමණක් පමණි",
+  
+           "YT_DESC": "එය YouTube ප්‍රතිපල සොයයි.",
+           "NEED_YT_SEARCH": "YOUTUBE හි ඔබ ඇතුලත් කල දේ පිලිබද සෙවීමට \n උදා:- .yt wallerman මත සෙවීමට පෙළ ටයිප් කරන්න",
+           "SEARCHING_YT": "```මම වීඩියෝ ගෙන එනවා...```",
+           "FAIL_YT": "_*කිසිවක් සොයාගත නොහැක:(*_"
+           
+  
+          },
+
+
         "tiktok": {
             "TİKTOK": "ටික්ටොක් හි වීඩියෝස් ඩවුන්ලෝඩ් කර හැක.",
             "NEED": "```Tiktok Link එකක් අවශ්‍ය වෙ!``` \n*උදාහරණ:* ```.tiktok https://vm.tiktok.com/ZSJY27ExT/```",
