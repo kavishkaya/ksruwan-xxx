@@ -590,33 +590,33 @@
         },
 
         "alive":{
-          "ALIVE_DESC": " "
+          "ALIVE_DESC": "To see if the bot is online or offline"
         },
         "facebook":{
-            "NEED_FB_URL": "  ",
-            "NOT_FB_URL": "  ",
-            "CANT_FIND_FB": "  ",
-            "FB_DESC": " "
+            "NEED_FB_URL": "Enter facebook url",
+            "NOT_FB_URL": "It's not a facebook video url.\n please enter only valied facebook url",
+            "CANT_FIND_FB": "```Cant find your video:(```",
+            "FB_DESC": "Download video from facebook"
 
         },
         "youtube":{
-         "SONG_DESC": "  ",
-         "NEED_SONG": "  ",
-         "CANT_FIND_SONG": "  ",
-         "NEED_URL_SONG": "  ",
-         "ONLY_YT_SONG_URL": "  ",
+         "SONG_DESC": "Dowloading song from youtube",
+         "NEED_SONG": "Enter song url or song name \n EX:- \n   1).song wallerman\n   2).song https://www.youtube.com/watch?v=qP-7GNoDJ5c",
+         "CANT_FIND_SONG": "```Sorry``` \n _*Can't find your song:(*_",
+         "NEED_URL_SONG": "Enter YOUTUBE song url",
+         "ONLY_YT_SONG_URL": "You must enter only youtube song or video url",
 
 
-         "VIDEO_DESC": "  ",
-         "NEED_VIDEO": "  ",
-         "CANT_FIND_VIDEO": "  ",
-         "NEED_URL_VIDEO": "  ",
-         "ONLY_YT_VIDEO_URL": "  ",
+         "VIDEO_DESC": "Dowloading videos from youtube",
+         "NEED_VIDEO": "Enter video url or video name \n EX:- \n   1).video wallerman\n   2).video https://www.youtube.com/watch?v=qP-7GNoDJ5c",
+         "CANT_FIND_VIDEO": "```Sorry``` \n _*Can't find your video:(*_",
+         "NEED_URL_VIDEO": "Enter YOUTUBE video url ",
+         "ONLY_YT_VIDEO_URL": "You must enter only youtube video url",
 
-         "YT_DESC": "  ",
-         "NEED_YT_SEARCH": "  ",
-         "SEARCHING_YT": "  ",
-         "FAIL_YT": "  "
+         "YT_DESC": "It searchs on YouTube.",
+         "NEED_YT_SEARCH": "Type text to search on YOUTUBE  \n EX. .yt wallerman",
+         "SEARCHING_YT": "```I'm Bringing Videos...```",
+         "FAIL_YT": "_*Can't find anything:(*_"
          
 
         },
