@@ -118,7 +118,7 @@ evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: false, deleteCommand: false,  NoLis
     let docsong = await yta(match[1])
         
      await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
-    await message.client.sendMessage(message.jid , { document : { url : docsong.mp3  } , mimetype : 'audio/mpeg' , fileName : docsong.title + '.mp3' } , { quoted: message.data })
+    await message.client.sendMessage(message.jid , { document : { url : docsong.url  } , mimetype : 'audio/mpeg' , fileName : docsong.title + '.mp3' } , { quoted: message.data })
    
 
 }));
@@ -134,7 +134,7 @@ evt.getCMD({pattern: 'acsong ?(.*)', fromMe: false, deleteCommand: false, NoList
     let docsong = await yta(match[1])
      
     await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
-    await message.client.sendMessage(message.jid , { audio: { url: docsong.mp3 }, mimetype: 'audio/mp4' } , { quoted: message.data })
+    await message.client.sendMessage(message.jid , { audio: { url: docsong.url }, mimetype: 'audio/mp4' } , { quoted: message.data })
    
 
 }));
