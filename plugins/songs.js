@@ -2,7 +2,7 @@ const evt = require('../events')
 const config = require('../config');
 const fs = require('fs');
 const yts = require( 'yt-search' )
-const ytmp3 = require('kaviyaah-api/ytmp3');
+const { yta } = require('../lib/y2mate');
 const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
@@ -115,7 +115,7 @@ evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: false, deleteCommand: false,  NoLis
     
     await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
 
-    let docsong = await ytmp3(match[1])
+    let docsong = await yta(match[1])
         
      await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
     await message.client.sendMessage(message.jid , { document : { url : docsong.mp3  } , mimetype : 'audio/mpeg' , fileName : docsong.title + '.mp3' } , { quoted: message.data })
@@ -131,7 +131,7 @@ evt.getCMD({pattern: 'acsong ?(.*)', fromMe: false, deleteCommand: false, NoList
     
     await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
 
-    let docsong = await ytmp3(match[1])
+    let docsong = await yta(match[1])
      
     await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
     await message.client.sendMessage(message.jid , { audio: { url: docsong.mp3 }, mimetype: 'audio/mp4' } , { quoted: message.data })
