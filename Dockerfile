@@ -1,4 +1,4 @@
-FROM node:latest
+FROM quay.io/souravkl11/raganork:multidevice
 RUN git clone https://github.com/erwjfixofdifdjcfidf/pvt-diana /root/queendianamd
 WORKDIR /root/queendianamd
 RUN git clone https://github.com/kavishkaya/upload
