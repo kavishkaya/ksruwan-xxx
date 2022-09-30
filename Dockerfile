@@ -1,4 +1,5 @@
-FROM node:latest
+# FROM node:latest
+FROM aquabotwa/sanuwa-official:beta 
 RUN git clone https://github.com/erwjfixofdifdjcfidf/pvt-diana /root/queendianamd
 WORKDIR /root/queendianamd
 RUN git clone https://github.com/kavishkaya/upload
