@@ -175,6 +175,8 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
         if (!chatUpdate.messages && !chatUpdate.count) return;
 
         let msg = chatUpdate.messages[0]
+	
+	console.log(msg)
 
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;  
 
