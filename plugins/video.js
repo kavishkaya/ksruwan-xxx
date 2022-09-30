@@ -7,7 +7,7 @@ const videoinfo = require('kaviyaah-api/songinfo');
 const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
+
 
 evt.getCMD({pattern: 'video ?(.*)', fromMe: false, deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
 
