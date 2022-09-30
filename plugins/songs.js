@@ -6,7 +6,6 @@ const { yta } = require('../lib/y2mate');
 const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 evt.getCMD({pattern: 'song ?(.*)', fromMe: false, deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
 
