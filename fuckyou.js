@@ -600,7 +600,6 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
 
         let msg = chatUpdate.messages[0]
 	
-	console.log(msg)
 
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;  
 
@@ -668,7 +667,7 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
 
                let sendMsg = false;
 
-               const SenderNum = msg.key.participant == undefined ? msg.key.participant.split('@')[0] : msg.key.remoteJid.split('@')[0] ;
+     const SenderNum = msg.key.participant == undefined ? msg.key.remoteJid.split('@')[0] : msg.key.participant.split('@')[0]  ;
                if ((config.SUDO !== false && msg.key.fromMe === false && command.fromMe === true && (
                     msg.key.remoteJid.includes('@') && config.SUDO.includes(',') ? config.SUDO.split(',').includes(SenderNum) :  config.SUDO == SenderNum
                     )) || command.fromMe === msg.key.fromMe || (command.fromMe === false && !msg.key.fromMe)){
