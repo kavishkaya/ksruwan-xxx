@@ -19,7 +19,8 @@ evt.getCMD({pattern: 'sticker$', fromMe: false, deleteCommand: false, desc: Lang
     await message.client.sendMessage(message.jid , {text: Lang.CREATING_STICKER} , { quoted: message.data } );
     
     
-if(message.reply_message.video === true || message.reply_message.image === true ){      
+   
+if (message.reply_message.video === false && message.reply_message.image) { 
 
         var location = await downloadMediaMessage({
             key: {
