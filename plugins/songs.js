@@ -2,11 +2,10 @@ const evt = require('../events')
 const config = require('../config');
 const fs = require('fs');
 const yts = require( 'yt-search' )
-const ytmp3 = require('kaviyaah-api/ytmp3');
+const { yta } = require('../lib/y2mate');
 const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
-
 
 evt.getCMD({pattern: 'song ?(.*)', fromMe: false, deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
 
@@ -34,10 +33,15 @@ const video = await yts( { videoId: vidid } )
 ╔═══════【👸】═══════╗
                   𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
 *〘YOUTUBE MUSIC DOWNLOADER〙*
+
 🧚Song :- ${title}
+
 👁Views :- ${views}
+
 💠Channel :- ${channel}
+
 📎URL :- ${yuturl}
+
 ╚════════●●●════════╝    
 `
     
@@ -74,10 +78,15 @@ const video = await yts( { videoId: vidid } )
 ╔═══════【👸】═══════╗
                   𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
 *〘YOUTUBE MUSIC DOWNLOADER〙*
+
 🧚Song :- ${title}
+
 👁Views :- ${views}
+
 💠Channel :- ${channel}
+
 📎URL :- ${yuturl}
+
 ╚════════●●●════════╝    
 `
    
@@ -105,10 +114,10 @@ evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: false, deleteCommand: false,  NoLis
     
     await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
 
-    let docsong = await ytmp3(match[1])
+    let docsong = await yta(match[1])
         
      await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
-    await message.client.sendMessage(message.jid , { document : { url : docsong.mp3  } , mimetype : 'audio/mpeg' , fileName : docsong.title + '.mp3' } , { quoted: message.data })
+    await message.client.sendMessage(message.jid , { document : { url : docsong.url  } , mimetype : 'audio/mpeg' , fileName : docsong.title + '.mp3' } , { quoted: message.data })
    
 
 }));
@@ -121,10 +130,10 @@ evt.getCMD({pattern: 'acsong ?(.*)', fromMe: false, deleteCommand: false, NoList
     
     await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
 
-    let docsong = await ytmp3(match[1])
+    let docsong = await yta(match[1])
      
     await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
-    await message.client.sendMessage(message.jid , { audio: { url: docsong.mp3 }, mimetype: 'audio/mp4' } , { quoted: message.data })
+    await message.client.sendMessage(message.jid , { audio: { url: docsong.url }, mimetype: 'audio/mp4' } , { quoted: message.data })
    
 
 }));
