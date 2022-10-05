@@ -1,5 +1,5 @@
 const evt = require('../events')
-const { ytv720 ,  ytv480 ,  ytv360 } = require('../lib/y2mate');
+const { yt720 ,  yt480 ,  yt360 } = require('kaviyaah-api/ytmp4');
 var yts = require("yt-search")
 const config = require('../config');
 const fs = require('fs');
@@ -116,7 +116,7 @@ evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: false, NoListCmd: true}, (
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
 if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
-let ytdlvid = await ytv360(match[1])
+let ytdlvid = await yt360(match[1])
 
 await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
 await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
@@ -129,7 +129,7 @@ evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: false, NoListCmd: true}, (
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
 if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
-let ytdlvid = await ytv480(match[1])
+let ytdlvid = await yt480(match[1])
 
 await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
 await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
@@ -142,7 +142,7 @@ evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: false, NoListCmd: true}, (
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
 if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
-let ytdlvid = await ytv720(match[1])
+let ytdlvid = await yt720(match[1])
 
 await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
 await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
