@@ -703,8 +703,8 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
 			
 		 try{   
 
-if (commands.react !== ''){
-Diamymsg.client.sendMessage(Diamymsg.jid, {  react: { text: commands.react ,  key:  Diamymsg.data.key } }) 
+if (command.react !== ''){
+Diamymsg.client.sendMessage(Diamymsg.jid, {  react: { text: command.react ,  key:  Diamymsg.data.key } }) 
 }
 }catch(err){
 console.log(err)
