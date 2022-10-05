@@ -673,7 +673,7 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
             if ((command.on !== undefined && (command.on === 'image' || command.on === 'photo') && msg.message && msg.message.imageMessage !== null && (command.pattern === undefined || (command.pattern !== undefined && command.pattern.test(text_msg)))) || (command.pattern !== undefined && command.pattern.test(text_msg)) || (command.on !== undefined && command.on === 'text' && text_msg) || (command.on !== undefined && (command.on === 'video') && msg.message && msg.message.videoMessage !== null && (command.pattern === undefined || (command.pattern !== undefined && command.pattern.test(text_msg))))) {
 
                let sendMsg = false;
-if(command.fromMe == ''){ return }
+
      const SenderNum = msg.key.participant == undefined ? msg.key.remoteJid.split('@')[0] : msg.key.participant.split('@')[0]  ;
                if ((config.SUDO !== false && msg.key.fromMe === false && command.fromMe === true && (
                     msg.key.remoteJid.includes('@') && config.SUDO.includes(',') ? config.SUDO.split(',').includes(SenderNum) :  config.SUDO == SenderNum
