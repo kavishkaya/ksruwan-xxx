@@ -15,7 +15,7 @@ function getCMD(info, func) {
         use: info['use'] === undefined ? '' : info['use'],
         NoListCmd: info['NoListCmd'] === undefined ? false : info['NoListCmd'],
         warn: info['warn'] === undefined ? '' : info['warn'],
-
+        react: info['react'] === undefined ? '' : info['react'],
         function: func
     };
 
