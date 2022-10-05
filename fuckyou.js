@@ -517,7 +517,7 @@ await StringSession(config.SESSION);
 const { state, saveState } = useSingleFileAuthState('/root/queendianamd/DIANA/diaAuth.json');
 await config.DATABASE.sync();
 
-console.log(' Connecting to WhatsApp ...');
+console.log('🔄 Connecting to WhatsApp ...');
 
 
 const conn = makeWASocket({
@@ -554,7 +554,7 @@ plugins.map(async (plugin) => {
             require('./plugins/' + plugin.dataValues.name + '.js');
         }     
     }
-    console.log('✅ External plugin installed successfully');
+
 
 } catch(error) {
     console.log('❌ Some Plugins Are Corrupted: ' + plugin.dataValues.name)
@@ -563,7 +563,7 @@ plugins.map(async (plugin) => {
     }
 
 });
-
+    console.log('✅ External plugin installed successfully');
 
         console.log('⬇️  Installing plugins...');
 
@@ -638,7 +638,7 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
         events.commands.map(
         async(command) => {
             
-            console.log(command)
+            
             
             if (msg.message && msg.message.imageMessage && msg.message.imageMessage.caption) {
                     var text_msg = msg.message.imageMessage.caption;
@@ -673,7 +673,7 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
             if ((command.on !== undefined && (command.on === 'image' || command.on === 'photo') && msg.message && msg.message.imageMessage !== null && (command.pattern === undefined || (command.pattern !== undefined && command.pattern.test(text_msg)))) || (command.pattern !== undefined && command.pattern.test(text_msg)) || (command.on !== undefined && command.on === 'text' && text_msg) || (command.on !== undefined && (command.on === 'video') && msg.message && msg.message.videoMessage !== null && (command.pattern === undefined || (command.pattern !== undefined && command.pattern.test(text_msg))))) {
 
                let sendMsg = false;
-
+if(command.fromMe == ''){ return }
      const SenderNum = msg.key.participant == undefined ? msg.key.remoteJid.split('@')[0] : msg.key.participant.split('@')[0]  ;
                if ((config.SUDO !== false && msg.key.fromMe === false && command.fromMe === true && (
                     msg.key.remoteJid.includes('@') && config.SUDO.includes(',') ? config.SUDO.split(',').includes(SenderNum) :  config.SUDO == SenderNum
