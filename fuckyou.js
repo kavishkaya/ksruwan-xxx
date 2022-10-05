@@ -700,6 +700,15 @@ var user_number = conn.user.id.split(":")[0] + '@s.whatsapp.net'
                     if (msg.key.fromMe && command.deleteCommand) {
                         await Diamymsg.delete(msg)
                     }
+			
+		 try{   
+
+if (commands.react !== ''){
+Diamymsg.client.sendMessage(Diamymsg.jid, {  react: { text: commands.react ,  key:  Diamymsg.data.key } }) 
+}
+}catch(err){
+console.log(err)
+}	
 
                  try {
                         await command.
