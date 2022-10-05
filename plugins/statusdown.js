@@ -36,4 +36,4 @@ diana.getCMD({pattern: 'stdown$', fromMe: true, deleteCommand: true, desc: ST_DO
                 await message.client.sendMessage(message.jid, { video: fs.readFileSync('/root/queendianamd/sta.mp4') , caption: config.CAPTION });
             
         return 
-    }));
+}));

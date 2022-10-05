@@ -4,8 +4,10 @@ const config = require('../config')
 const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
+const QUEEN = config.WORKTYPE == 'private' ? true : ''
+const DIANA = config.WORKTYPE == 'public' ? true : false
 
-diana.getCMD({pattern: 'yt (.*)', fromMe: false, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+diana.getCMD({pattern: 'yt (.*)', fromMe: QUEEN, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
         await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
         try {
@@ -57,8 +59,90 @@ Select one to download video or song
         }
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
 }));
+diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: QUEEN,deleteCommand: false,NoListCmd: true}, (async (message, match) => {
 
-diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: false,NoListCmd: true}, (async (message, match) => {
+        if (!match[1]) return 
+
+
+        const link = match[1]
+
+        const buttons = [
+                {buttonId: prefix + 'video ' + link,buttonText: { displayText: '🎥 VIDEO'},type: 1},
+                {buttonId: prefix + 'song ' + link,buttonText: {displayText: '🎵 SONG'},type: 1}]
+
+        const buttonMessage = {
+                text: `
+╔═══════【👸】═══════╗
+                  𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
+*〘YOUTUBE  DOWNLOADER〙*
+
+SELECT YOU NEED RESULT 
+     TYPE HERE 
+
+
+╚════════●●●════════╝    
+`,
+                footer: config.FOOTER,
+                buttons: buttons,
+                headerType: 1
+        }
+
+        await message.client.sendMessage(message.jid, buttonMessage, {quoted: message.data})
+}));
+
+diana.getCMD({pattern: 'yt (.*)', fromMe: DIANA, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+        if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
+        await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
+        try {
+                var arama = await yts(match[1]);
+        } catch {
+                return await message.client.sendMessage(message.jid, {text: Lang.FAIL_YT }, {quoted: message.data})
+        }
+        arama = arama.videos
+        var videos = [];
+        for (var index = 0; index < arama.length; index++) {
+                videos.push({
+                        title: index + 1 ,
+                        description: `
+╔═══════【👸】═══════╗
+*〘YOUTUBE SEARCH RESULTS〙*
+*🧚Title :* _${arama[index].title}_
+*📎Link :* _${arama[index].url}_
+*⏰Duration :* _${arama[index].timestamp}_
+*👁Views :* _${arama[index].views}_
+*📅Time ago :* _${arama[index].ago}_
+*🌐Channel :* _${arama[index].author.name}_
+*🖇Channel Url :* _${arama[index].author.url}_
+╚════════●●●════════╝  
+`,
+                        rowId: `.upvideosongselect ${arama[index].url}`
+                });
+        }
+        const sections = [{
+                title: "YouTube search results",
+                rows: videos
+        }]
+        const listMessage = {
+                text: `
+                  𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
+*〘YOUTUBE SEARCH RESULTS〙*
+
+*RESULTS FOR*  _${match[1]}_
+
+Found ${arama.length} Results
+
+Select one to download video or song
+
+╚════════●●●════════╝   
+`,
+                footer: config.FOOTER,
+                title: '╔═══════【👸】═══════╗',
+                buttonText: "Select a video",
+                sections
+        }
+        await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
+}));
+diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: DIANA,deleteCommand: false,NoListCmd: true}, (async (message, match) => {
 
         if (!match[1]) return 
 

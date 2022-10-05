@@ -124,8 +124,6 @@ evt.getCMD({pattern: 'pkg ?(.*)' , fromMe: true, deleteCommand: false, desc: Lan
         }
     }
 }));
-
-
 evt.getCMD({pattern: 'plugins$' , fromMe: true, deleteCommand: false, desc: Lang.INSTSLL_PLUGINS }, (async (message, match) => {    
 
 var plugins = await Db.PluginDB.findAll()
@@ -173,6 +171,7 @@ sections
 }));
 
 
+
 evt.getCMD({pattern: 'remove$' , fromMe: true, deleteCommand: false, desc: Lang.REMOVE_DESC}, (async (message, match) => {    
 
     var plugins = await Db.PluginDB.findAll()
@@ -214,8 +213,6 @@ plist.push({
      
         await message.client.sendMessage(message.jid , listMessage) 
 }));
-
-
 evt.getCMD({pattern: 'delmyinstallpluginsnow(?: |$)(.*)' , fromMe: true, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,{text: Lang.NEED_PLUGIN});

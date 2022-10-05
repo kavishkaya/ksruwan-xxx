@@ -26,10 +26,6 @@ Diana.getCMD({pattern: 'filter ?(.*)', fromMe: true,NoListCmd: true , desc: Lang
         await message.client.sendMessage(message.jid, { text: Lang.FILTERED.format(match[0].replace(/['"]+/g, '')) });
     }
 }));
-
-
-
-
 Diana.getCMD({pattern: 'stop ?(.*)', fromMe: true,NoListCmd: true , desc: Lang.STOP_DESC}, (async (message, match) => {
 
     match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
@@ -47,7 +43,6 @@ Diana.getCMD({pattern: 'stop ?(.*)', fromMe: true,NoListCmd: true , desc: Lang.S
 }));
 
 
-
 Diana.getCMD({on: 'text', fromMe: false  ,NoListCmd: true}, (async (message, match) => {
     var filtreler = await FilterDb.getFilter(message.jid);
     if (!filtreler) return; 
@@ -60,9 +55,6 @@ Diana.getCMD({on: 'text', fromMe: false  ,NoListCmd: true}, (async (message, mat
         }
     );
 }));
-
-
-
 Diana.getCMD({on: 'text', fromMe: false}, (async (message, match) => {
     if(Config.STICKERP){
 
