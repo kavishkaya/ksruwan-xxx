@@ -7,7 +7,7 @@ const Lang = Language.getString('youtube');
 const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
 
-diana.getCMD({pattern: 'yt (.*)', fromMe: QUEEN, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+diana.getCMD({pattern: 'yt (.*)', fromMe: QUEEN, react:'🔍' ,deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
         await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
         try {
@@ -59,7 +59,7 @@ Select one to download video or song
         }
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
 }));
-diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: QUEEN,deleteCommand: false,NoListCmd: true}, (async (message, match) => {
+diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: QUEEN, react:'📄' , deleteCommand: false,NoListCmd: true}, (async (message, match) => {
 
         if (!match[1]) return 
 
@@ -90,7 +90,7 @@ SELECT YOU NEED RESULT
         await message.client.sendMessage(message.jid, buttonMessage, {quoted: message.data})
 }));
 
-diana.getCMD({pattern: 'yt (.*)', fromMe: DIANA, deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+diana.getCMD({pattern: 'yt (.*)', fromMe: DIANA, react:'🔍' , deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
         await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
         try {
@@ -142,7 +142,7 @@ Select one to download video or song
         }
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
 }));
-diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: DIANA,deleteCommand: false,NoListCmd: true}, (async (message, match) => {
+diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: DIANA, react:'📄' ,deleteCommand: false,NoListCmd: true}, (async (message, match) => {
 
         if (!match[1]) return 
 

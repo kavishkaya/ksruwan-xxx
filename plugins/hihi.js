@@ -9,6 +9,6 @@ const evt = require('../events');
 
 
 
-evt.getCMD({pattern: 'bye$' || 'hi$' , fromMe: false, deleteCommand: false, desc: "give anser hi"}, (async (message, match) => {
+evt.getCMD({pattern: 'bye$' , fromMe: false, deleteCommand: false, desc: "give anser hi"}, (async (message, match) => {
  await message.client.sendMessage(message.jid, { text: 'bye sago' }) 
 }));

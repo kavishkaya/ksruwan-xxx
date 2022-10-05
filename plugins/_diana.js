@@ -12,12 +12,21 @@ const config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('_QUEEN_DIANA');
 const lusifarv = fs.readFileSync('./upload/voicenew/dianamenu.mp3') 
-const lusicode = " "
-const lucodeee = ("  ")
+const lucodeee = `
+◄◉◉◉◉◉◉◉◯◉👸◉◯◉◉◉◉◉◉◉◉►
+                ◁👸Queen Diana👸▷
+                   Whatsapp user bot
+🧜‍♀Qᴜᴇᴇɴ ᴅɪᴀɴᴀ ɪꜱ ᴀ ᴘᴏᴡᴇʀꜰᴜʟʟ ʙᴏᴛ ꜰᴏʀ ᴡʜᴀᴛꜱᴀᴘᴘ.
+                   ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ ᴋᴀᴠɪꜱʜᴋᴀ  
+Use ᴇᴀꜱʏ ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ᴘᴇʀᴇᴄᴛʟʏ..
+🎨ꜱᴏ Qᴜᴇᴇɴ ᴅɪᴀɴᴀ ɪꜱ ʙᴇꜱᴛ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ🧞‍♀️!!
+
+◄◉◉◉◉◉◉◯◉◯◉◯◉◉◉◉◉◉◉◉►
+`
 const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
- 
-Diana.getCMD({pattern: 'menu ?(.*)', fromMe: QUEEN, NoListCmd: true}, (async (message, match) => {
+
+Diana.getCMD({pattern: 'menu ?(.*)', fromMe: QUEEN, deleteCommand: false, react:'📄' ,NoListCmd: true}, (async (message, match) => {
 
         var CMD_HELP = '';
         if (match[1] === '') {
@@ -122,7 +131,7 @@ Diana.getCMD({pattern: 'menu ?(.*)', fromMe: QUEEN, NoListCmd: true}, (async (me
             );
         }
 }));
-Diana.getCMD({pattern: 'menu ?(.*)', fromMe: DIANA, NoListCmd: true}, (async (message, match) => {
+Diana.getCMD({pattern: 'menu ?(.*)', fromMe: DIANA, deleteCommand: false, react:'📄' ,NoListCmd: true}, (async (message, match) => {
 
         var CMD_HELP = '';
         if (match[1] === '') {

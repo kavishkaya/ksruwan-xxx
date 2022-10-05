@@ -17,7 +17,7 @@ const conf = require("../config");
 const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
  
-evt.getCMD({pattern: 'attp ?(.*)', fromMe: QUEEN, deleteCommand: false, desc: Lang.ATTP_DESC}, (async (message, match) => { 
+evt.getCMD({pattern: 'attp ?(.*)', fromMe: QUEEN, react:'✨' ,deleteCommand: false, desc: Lang.ATTP_DESC}, (async (message, match) => { 
     if (match[1] === '') return await message.client.sendMessage(message.jid , { text:Lang.NEED_WORDS}, { quoted: message.data });
 
     var uri = encodeURI(match[1])
@@ -48,7 +48,7 @@ return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSyn
 
 
  }))
-evt.getCMD({pattern: 'attp ?(.*)', fromMe: DIANA, deleteCommand: false, desc: Lang.ATTP_DESC}, (async (message, match) => { 
+evt.getCMD({pattern: 'attp ?(.*)', fromMe: DIANA, react:'✨' ,deleteCommand: false, desc: Lang.ATTP_DESC}, (async (message, match) => { 
     if (match[1] === '') return await message.client.sendMessage(message.jid , { text:Lang.NEED_WORDS}, { quoted: message.data });
 
     var uri = encodeURI(match[1])

@@ -13,7 +13,7 @@ const stpack = config.STPACK
 const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
 
-evt.getCMD({pattern: 'sticker$', fromMe: QUEEN, deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'sticker$', fromMe: QUEEN, react:'✨' ,deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
 
     if (message.reply_message === false) return await message.client.sendMessage(message.jid , {text: Lang.NEED_REPLY} , { quoted: message.data } );
 
@@ -94,7 +94,7 @@ return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSyn
 
 
 }))
-evt.getCMD({pattern: 'sticker$', fromMe: DIANA, deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'sticker$', fromMe: DIANA, react:'✨' ,deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
 
     if (message.reply_message === false) return await message.client.sendMessage(message.jid , {text: Lang.NEED_REPLY} , { quoted: message.data } );
 

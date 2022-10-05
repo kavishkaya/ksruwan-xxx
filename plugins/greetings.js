@@ -4,7 +4,7 @@ const Language = require('../language');
 const Lang = Language.getString('greetings');
 const config = require('../config')
 
-evt.getCMD({pattern: 'welcome$' , fromMe: true , deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'welcome$' , fromMe: true , react:'👋' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
 
     var hg = await sql.getMessage(message.jid);
     if (hg === false) {
@@ -13,7 +13,7 @@ evt.getCMD({pattern: 'welcome$' , fromMe: true , deleteCommand: false, NoListCmd
         await message.client.sendMessage(message.jid, {text: Lang.WELCOME_ALREADY_SETTED + hg.message});
     }
 }));
-evt.getCMD({pattern: 'welcome ?(.*)' , fromMe: true , deleteCommand: false, desc: Lang.WELCOME_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'welcome ?(.*)' , fromMe: true , react:'✅' ,deleteCommand: false, desc: Lang.WELCOME_DESC}, (async (message, match) => {
 
    if (match[1] === '') return ;
      if (match[1] === 'delete') {await message.client.sendMessage(message.jid, {text: Lang.WELCOME_DELETED}); return await sql.deleteMessage(message.jid, 'welcome'); }
@@ -21,7 +21,7 @@ evt.getCMD({pattern: 'welcome ?(.*)' , fromMe: true , deleteCommand: false, desc
     return await message.client.sendMessage(message.jid, {text: Lang.WELCOME_SETTED})
 
 }));
-evt.getCMD({pattern: 'setwelcome$',fromMe: true,NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'setwelcome$',fromMe: true,react:'✅' ,NoListCmd: true}, (async (message, match) => {
 
     if(!message.reply_message) return await message.client.sendMessage(message.jid, {text: Lang.SET_WELCOME })
     
@@ -37,7 +37,7 @@ evt.getCMD({pattern: 'setwelcome$',fromMe: true,NoListCmd: true}, (async (messag
 }));
 
 
-evt.getCMD({pattern: 'goodbye$' , fromMe: true , deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'goodbye$' , fromMe: true , react:'👋' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
     var hg = await sql.getMessage(message.jid, 'goodbye');
     if (hg === false) {
         await message.client.sendMessage(message.jid, {text: Lang.NOT_SET_GOODBYE})
@@ -45,14 +45,14 @@ evt.getCMD({pattern: 'goodbye$' , fromMe: true , deleteCommand: false, NoListCmd
         await message.client.sendMessage(message.jid, {text: Lang.GOODBYE_ALREADY_SETTED + hg.message + '```'});
     }
 }));
-evt.getCMD({pattern: 'goodbye (.*)' , fromMe: true , deleteCommand: false, desc: Lang.GOODBYE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'goodbye (.*)' , fromMe: true , react:'✅' ,deleteCommand: false, desc: Lang.GOODBYE_DESC}, (async (message, match) => {
     if (match[1] === '') return;
         if (match[1] === 'delete') { await message.client.sendMessage(message.jid, {text: Lang.GOODBYE_DELETED}); return await sql.deleteMessage(message.jid, 'goodbye'); }
         await sql.setMessage(message.jid, 'goodbye', match[1].replace(/#/g, '\n'));
         return await message.client.sendMessage(message.jid, {text: Lang.GOODBYE_SETTED})
     
 }));
-evt.getCMD({pattern: 'setgoodbye', fromMe: true, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'setgoodbye', fromMe: true, react:'✅' ,NoListCmd: true}, (async (message, match) => {
 
 if(!message.reply_message) return await message.client.sendMessage(message.jid, {text: Lang.SET_GOODBYE })
 try{    

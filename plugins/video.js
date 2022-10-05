@@ -10,7 +10,7 @@ const Lang = Language.getString('youtube');
 const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
 
-evt.getCMD({pattern: 'video ?(.*)', fromMe: QUEEN, deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'video ?(.*)', fromMe: QUEEN, react:'📽️' ,deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_VIDEO }, { quoted: message.data } )   
 try{
@@ -111,7 +111,7 @@ const video = await yts( { videoId: vidid } )
 }
 }
 }));
-evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: QUEEN, deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
 
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -122,7 +122,7 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted
 await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
 await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
 }));
-evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: QUEEN, deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
 
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -133,7 +133,7 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted
 await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
 await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
 }));
-evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: QUEEN, deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
 
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -145,7 +145,7 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted
 await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
 }));
 
-evt.getCMD({pattern: 'video ?(.*)', fromMe: DIANA, deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'video ?(.*)', fromMe: DIANA, react:'📽️' ,deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
 
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_VIDEO }, { quoted: message.data } )   
     try{
@@ -246,7 +246,7 @@ evt.getCMD({pattern: 'video ?(.*)', fromMe: DIANA, deleteCommand: false, desc: L
     }
     }
 }));
-    evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: DIANA, deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+    evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
     
     
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -257,7 +257,7 @@ evt.getCMD({pattern: 'video ?(.*)', fromMe: DIANA, deleteCommand: false, desc: L
     await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
     await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
 }));
-    evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: DIANA, deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+    evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
     
     
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
@@ -268,7 +268,7 @@ evt.getCMD({pattern: 'video ?(.*)', fromMe: DIANA, deleteCommand: false, desc: L
     await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
     await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
 }));
-    evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: DIANA, deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+    evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
     
     
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )

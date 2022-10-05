@@ -7,7 +7,7 @@ const Lang = Language.getString('facebook');
 const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
 
-evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: QUEEN, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
 const q = match[1];
 
@@ -66,7 +66,7 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted
 
 
 }));
-evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: QUEEN, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
     const q = match[1];
       
@@ -129,7 +129,7 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: QUEEN, deleteCommand: false, No
       }}}
     
 }));
-evt.getCMD({pattern: 'fb ?(.*)',fromMe: QUEEN, deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'fb ?(.*)',fromMe: QUEEN, react:'📽️' ,deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
 
         const q = match[1];
       
@@ -184,7 +184,7 @@ SELECT YOU NEED VIDEO QUALITY
 
 
 
-evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
         const q = match[1];
         
@@ -243,7 +243,7 @@ evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, deleteCommand: false, No
         
         
 }));      
-evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
         
             const q = match[1];
               
@@ -306,7 +306,7 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, deleteCommand: false, No
               }}}
             
 }));     
-evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, react:'📽️' ,deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
         
                 const q = match[1];
               

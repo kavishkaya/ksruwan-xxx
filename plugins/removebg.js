@@ -15,7 +15,7 @@ const RBG_API_KEY = config.RBG_API_KEY
 const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
 
-evt.getCMD({pattern: 'removebg$', fromMe: QUEEN, deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'removebg$', fromMe: QUEEN, react:'🌅' ,deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
 
     if (message.reply_message === false || message.reply_message.image === false) return await message.client.sendMessage(message.jid, {text:Lang.NEED_PHOTO}, {quoted: message.data} );  
 
@@ -49,7 +49,7 @@ await fs.unlinkSync(imglocate)
 
 
 })) 
-evt.getCMD({pattern: 'removebg$', fromMe: DIANA, deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'removebg$', fromMe: DIANA, react:'🌅' ,deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
 
     if (message.reply_message === false || message.reply_message.image === false) return await message.client.sendMessage(message.jid, {text:Lang.NEED_PHOTO}, {quoted: message.data} );  
 

@@ -27,7 +27,7 @@ var LANG = {
             imside: Config.LANG == 'TR' || Config.LANG == 'AZ' ? '*ඔබට පවතින ප්ලගීන නැවත ස්ථාපනය කළ නොහැක!*' : '*You Cant Reinstall Existing Plugins!*'
 };
 
-evt.getCMD({pattern: 'pkg ?(.*)' , fromMe: true, deleteCommand: false, desc: Lang.PLUGINS_INSTSLL }, (async (message, match) => {
+evt.getCMD({pattern: 'pkg ?(.*)' , fromMe: true, deleteCommand: false, react:'✅' ,desc: Lang.PLUGINS_INSTSLL }, (async (message, match) => {
 
     if (match[1] == '') return await message.client.sendMessage(message.jid, {text: Lang.NEED_URL + '.install https://gist.github.com/kavishkaya/4232b1c8c4734e1f06c3d991149c6fbd'})
     try {
@@ -124,7 +124,7 @@ evt.getCMD({pattern: 'pkg ?(.*)' , fromMe: true, deleteCommand: false, desc: Lan
         }
     }
 }));
-evt.getCMD({pattern: 'plugins$' , fromMe: true, deleteCommand: false, desc: Lang.INSTSLL_PLUGINS }, (async (message, match) => {    
+evt.getCMD({pattern: 'plugins$' , fromMe: true, deleteCommand: false, react:'📄' ,desc: Lang.INSTSLL_PLUGINS }, (async (message, match) => {    
 
 var plugins = await Db.PluginDB.findAll()
 
@@ -172,7 +172,7 @@ sections
 
 
 
-evt.getCMD({pattern: 'remove$' , fromMe: true, deleteCommand: false, desc: Lang.REMOVE_DESC}, (async (message, match) => {    
+evt.getCMD({pattern: 'remove$' , fromMe: true, deleteCommand: false, react:'📄' ,desc: Lang.REMOVE_DESC}, (async (message, match) => {    
 
     var plugins = await Db.PluginDB.findAll()
     
@@ -213,7 +213,7 @@ plist.push({
      
         await message.client.sendMessage(message.jid , listMessage) 
 }));
-evt.getCMD({pattern: 'delmyinstallpluginsnow(?: |$)(.*)' , fromMe: true, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'delmyinstallpluginsnow(?: |$)(.*)' , fromMe: true, react:'✅' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,{text: Lang.NEED_PLUGIN});
     if (!match[1].startsWith('__')) match[1] = '__' + match[1];

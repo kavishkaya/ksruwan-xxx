@@ -6,7 +6,7 @@ const Language = require('../language');
 const Lang = Language.getString('filters');
 
 
-Diana.getCMD({pattern: 'filter ?(.*)', fromMe: true,NoListCmd: true , desc: Lang.FILTER_DESC}, (async (message, match) => {
+Diana.getCMD({pattern: 'filter ?(.*)', fromMe: true,NoListCmd: true , react:'✅' ,desc: Lang.FILTER_DESC}, (async (message, match) => {
     match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
 
     if (match === null) {
@@ -26,7 +26,7 @@ Diana.getCMD({pattern: 'filter ?(.*)', fromMe: true,NoListCmd: true , desc: Lang
         await message.client.sendMessage(message.jid, { text: Lang.FILTERED.format(match[0].replace(/['"]+/g, '')) });
     }
 }));
-Diana.getCMD({pattern: 'stop ?(.*)', fromMe: true,NoListCmd: true , desc: Lang.STOP_DESC}, (async (message, match) => {
+Diana.getCMD({pattern: 'stop ?(.*)', fromMe: true,NoListCmd: true , react:'✅' ,desc: Lang.STOP_DESC}, (async (message, match) => {
 
     match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
     if (match === null) {

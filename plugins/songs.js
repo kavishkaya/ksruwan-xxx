@@ -11,7 +11,7 @@ const QUEEN = config.WORKTYPE == 'private' ? true : ''
 const DIANA = config.WORKTYPE == 'public' ? true : false
 
 
-evt.getCMD({pattern: 'song ?(.*)', fromMe: QUEEN , deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'song ?(.*)', fromMe: QUEEN , react:'🎵' ,deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_SONG }, { quoted: message.data } )   
 try{
@@ -109,7 +109,7 @@ const video = await yts( { videoId: vidid } )
 }
 }
 }));
-evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: QUEEN , deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: QUEEN , react:'📁' ,deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
    
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
@@ -123,7 +123,7 @@ evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: QUEEN , deleteCommand: false,  NoLi
    
 
 }));
-evt.getCMD({pattern: 'acsong ?(.*)', fromMe: QUEEN , deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'acsong ?(.*)', fromMe: QUEEN , react:'🎧' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
     
@@ -138,7 +138,7 @@ evt.getCMD({pattern: 'acsong ?(.*)', fromMe: QUEEN , deleteCommand: false, NoLis
 }));
 
 
-evt.getCMD({pattern: 'song ?(.*)', fromMe: DIANA, deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'song ?(.*)', fromMe: DIANA, react:'🎵' ,deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
 
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_SONG }, { quoted: message.data } )   
     try{
@@ -236,7 +236,7 @@ evt.getCMD({pattern: 'song ?(.*)', fromMe: DIANA, deleteCommand: false, desc: La
     }
     }
 }));
-evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: DIANA, deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: DIANA, react:'📁' ,deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
        
         if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
         if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
@@ -250,7 +250,7 @@ evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: DIANA, deleteCommand: false,  NoLis
        
     
 }));
-evt.getCMD({pattern: 'acsong ?(.*)', fromMe: DIANA, deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+evt.getCMD({pattern: 'acsong ?(.*)', fromMe: DIANA, react:'🎧' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
         if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
         if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
         
