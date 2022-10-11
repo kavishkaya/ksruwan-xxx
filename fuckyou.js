@@ -278,10 +278,7 @@ plugins.map(async (plugin) => {
 
 if (command.react !== ''){
 Diamymsg.client.sendMessage(Diamymsg.jid, {  react: { text: command.react ,  key:  Diamymsg.data.key } }) 
-} 
-if (!match[1]){
-Diamymsg.client.sendMessage(Diamymsg.jid, {  react: { text: '❗' ,  key:  Diamymsg.data.key } }) 
-} 			
+}
 }catch(err){
 console.log(err)
 }	
