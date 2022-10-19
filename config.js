@@ -34,6 +34,7 @@ module.exports = {
     
     ALIVEMSG: process.env.ALIVE_MESSAGE === undefined ? 'default' : process.env.ALIVE_MESSAGE,
     ALIVEIMG: process.env.ALIVE_LOGO === undefined ? 'default' : process.env.ALIVE_LOGO,
+    MENULOGO: process.env.MENU_LOGO === undefined ? 'default' : process.env.MENU_LOGO,
     
     KICKMEMSG: process.env.KICKME_MESSAGE === undefined ? 'default' : process.env.KICKME_MESSAGE,
     BLOCKCHAT: process.env.BLOCK_CHAT === undefined ? false : process.env.BLOCK_CHAT,
