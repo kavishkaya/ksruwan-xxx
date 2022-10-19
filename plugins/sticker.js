@@ -10,8 +10,8 @@ const Lang = Language.getString('sticker');
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
 const stauthor = config.STAUTHOUR
 const stpack = config.STPACK
-const QUEEN = config.WORKTYPE == 'private' ? true : ''
-const DIANA = config.WORKTYPE == 'public' ? true : false
+const QUEEN = config.WORKTYPE == 'public' ? true : ''
+const DIANA = config.WORKTYPE == 'private' ? true : false
 
 evt.getCMD({pattern: 'sticker$', fromMe: QUEEN, react:'✨' ,deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
 

@@ -4,8 +4,8 @@ const config = require('../config')
 const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
-const QUEEN = config.WORKTYPE == 'private' ? true : ''
-const DIANA = config.WORKTYPE == 'public' ? true : false
+const QUEEN = config.WORKTYPE == 'public' ? true : ''
+const DIANA = config.WORKTYPE == 'private' ? true : false
 
 diana.getCMD({pattern: 'yt (.*)', fromMe: QUEEN, react:'🔍' ,deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})

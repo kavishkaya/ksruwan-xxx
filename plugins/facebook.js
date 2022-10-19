@@ -4,8 +4,8 @@ const evt = require('../events');
 const config = require('../config')
 const Language = require('../language');
 const Lang = Language.getString('facebook');
-const QUEEN = config.WORKTYPE == 'private' ? true : ''
-const DIANA = config.WORKTYPE == 'public' ? true : false
+const QUEEN = config.WORKTYPE == 'public' ? true : ''
+const DIANA = config.WORKTYPE == 'private' ? true : false
 
 evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 

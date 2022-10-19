@@ -7,8 +7,8 @@ const prefix = '.'
 const Language = require('../language');
 const Lang = Language.getString('youtube');
 
-const QUEEN = config.WORKTYPE == 'private' ? true : ''
-const DIANA = config.WORKTYPE == 'public' ? true : false
+const QUEEN = config.WORKTYPE == 'public' ? true : ''
+const DIANA = config.WORKTYPE == 'private' ? true : false
 
 
 evt.getCMD({pattern: 'song ?(.*)', fromMe: QUEEN , react:'🎵' ,deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {

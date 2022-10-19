@@ -14,8 +14,8 @@ const ALang = Language.getString('scrapers');
 const BLang = Language.getString('ttp');
 const axios = require("axios");
 const conf = require("../config");
-const QUEEN = config.WORKTYPE == 'private' ? true : ''
-const DIANA = config.WORKTYPE == 'public' ? true : false
+const QUEEN = config.WORKTYPE == 'public' ? true : ''
+const DIANA = config.WORKTYPE == 'private' ? true : false
  
 evt.getCMD({pattern: 'attp ?(.*)', fromMe: QUEEN, react:'✨' ,deleteCommand: false, desc: Lang.ATTP_DESC}, (async (message, match) => { 
     if (match[1] === '') return await message.client.sendMessage(message.jid , { text:Lang.NEED_WORDS}, { quoted: message.data });

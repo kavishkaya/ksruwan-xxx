@@ -12,6 +12,7 @@ const config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('_QUEEN_DIANA');
 const lusifarv = fs.readFileSync('./upload/voicenew/dianamenu.mp3') 
+const menulogo = config.MENULOGO
 const lucodeee = `
 ◄◉◉◉◉◉◉◉◯◉👸◉◯◉◉◉◉◉◉◉◉►
                 ◁👸Queen Diana👸▷
@@ -23,8 +24,8 @@ Use ᴇᴀꜱʏ ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ᴘᴇʀᴇᴄᴛʟʏ..
 
 ◄◉◉◉◉◉◉◯◉◯◉◯◉◉◉◉◉◉◉◉►
 `
-const QUEEN = config.WORKTYPE == 'private' ? true : ''
-const DIANA = config.WORKTYPE == 'public' ? true : false
+const QUEEN = config.WORKTYPE == 'public' ? true : ''
+const DIANA = config.WORKTYPE == 'private' ? true : false
 
 Diana.getCMD({pattern: 'menu ?(.*)', fromMe: QUEEN, deleteCommand: false, react:'📄' ,NoListCmd: true}, (async (message, match) => {
 
@@ -75,7 +76,7 @@ Diana.getCMD({pattern: 'menu ?(.*)', fromMe: QUEEN, deleteCommand: false, react:
             );
             await message.client.sendMessage(message.jid , { audio: lusifarv , mimetype: 'audio/mp4' } , { quoted: message.data })
             await message.client.sendMessage(
-                message.jid, { text: lucodeee + '\n\n' + CMD_HELP} );
+                message.jid, { image:{ url: menulogo} ,caption: lucodeee + '\n\n' + CMD_HELP} );
         }  else {
             var CMD_HELP = '';
             Diana.commands.map(
@@ -127,7 +128,7 @@ Diana.getCMD({pattern: 'menu ?(.*)', fromMe: QUEEN, deleteCommand: false, react:
             );
             if (CMD_HELP === '') CMD_HELP += Lang.NOT_FOUND;
             await message.client.sendMessage(
-                message.jid,{ text: lucodeee + '\n\n' + CMD_HELP} , {quoted: message.data}
+                message.jid,{ image:{ url: menulogo} , caption: lucodeee + '\n\n' + CMD_HELP} , {quoted: message.data}
             );
         }
 }));
@@ -180,7 +181,7 @@ Diana.getCMD({pattern: 'menu ?(.*)', fromMe: DIANA, deleteCommand: false, react:
             );
             await message.client.sendMessage(message.jid , { audio: lusifarv , mimetype: 'audio/mp4' } , { quoted: message.data })
             await message.client.sendMessage(
-                message.jid, { text: lucodeee + '\n\n' + CMD_HELP} );
+                message.jid, { image:{ url: menulogo} , caption: lucodeee + '\n\n' + CMD_HELP} );
         }  else {
             var CMD_HELP = '';
             Diana.commands.map(
@@ -232,25 +233,8 @@ Diana.getCMD({pattern: 'menu ?(.*)', fromMe: DIANA, deleteCommand: false, react:
             );
             if (CMD_HELP === '') CMD_HELP += Lang.NOT_FOUND;
             await message.client.sendMessage(
-                message.jid,{ text: lucodeee + '\n\n' + CMD_HELP} , {quoted: message.data}
+                message.jid,{ image:{ url: menulogo} ,caption: lucodeee + '\n\n' + CMD_HELP} , {quoted: message.data}
             );
         }
 }));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

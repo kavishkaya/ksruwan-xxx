@@ -12,8 +12,8 @@ const Language = require('../language');
 const Lang = Language.getString('removebg');
 const config = require('../config');
 const RBG_API_KEY = config.RBG_API_KEY
-const QUEEN = config.WORKTYPE == 'private' ? true : ''
-const DIANA = config.WORKTYPE == 'public' ? true : false
+const QUEEN = config.WORKTYPE == 'public' ? true : ''
+const DIANA = config.WORKTYPE == 'private' ? true : false
 
 evt.getCMD({pattern: 'removebg$', fromMe: QUEEN, react:'🌅' ,deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
 
