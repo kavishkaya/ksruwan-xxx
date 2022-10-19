@@ -51,6 +51,11 @@ class Message extends Base {
         return await this.client.sendMessage(this.jid, content, options)
     }
 
+    async react(emoji) {
+        return await this.client.sendMessage(this.jid, {  react: { text: emoji ,  key:  this.data.key } }) 
+
+    }
+
     async sendTyping() {
         return await this.client.sendPresenceUpdate('composing', this.jid);
     }

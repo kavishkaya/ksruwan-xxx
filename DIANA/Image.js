@@ -55,6 +55,10 @@ class Image extends Base {
         return await this.client.sendPresenceUpdate('composing', this.jid);
     }
 
+    async react(emoji) {
+        return await this.client.sendMessage(this.jid, {  react: { text: emoji ,  key:  this.data.key } }) 
+
+    }
     async sendRead() {
         return await this.client.readMessages(this.jid, this.key);
     }
