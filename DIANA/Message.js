@@ -32,9 +32,9 @@ class Message extends Base {
         return super._patch(data);
     }
 
-    async delete() {
+    async delete(mess) {
         return await this.client.sendMessage(this.jid, {
-            delete: this.key
+            delete: mess.key
         })
     }
 

@@ -32,9 +32,9 @@ class Video extends Base {
         return super._patch(data);
     }
 
-    async delete() {
+    async delete(mess) {
         return await this.client.sendMessage(this.jid, {
-            delete: this.key
+            delete: mess.key
         })
     }
 
@@ -59,7 +59,7 @@ class Video extends Base {
         return await this.client.sendMessage(this.jid, {  react: { text: emoji ,  key:  this.data.key } }) 
 
     }
-    
+
     async sendRead() {
         return await this.client.readMessages(this.jid, this.key);
     }

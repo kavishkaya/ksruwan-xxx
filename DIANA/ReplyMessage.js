@@ -42,9 +42,9 @@ class ReplyMessage extends Base {
         return super._patch(data);
     }
 
-    async delete() {
+    async delete(mess) {
         return await this.client.sendMessage(this.jid, {
-            delete: this.key
+            delete: mess.key
         })
     }
 
@@ -65,7 +65,7 @@ class ReplyMessage extends Base {
         return await this.client.sendMessage(this.jid, {  react: { text: emoji ,  key:  this.data.key } }) 
 
     }
-    
+
     async sendTyping() {
         return await this.client.sendPresenceUpdate('composing', this.jid);
     }
