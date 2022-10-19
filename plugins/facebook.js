@@ -6,6 +6,7 @@ const Language = require('../language');
 const Lang = Language.getString('facebook');
 const QUEEN = config.WORKTYPE == 'public' ? true : ''
 const DIANA = config.WORKTYPE == 'private' ? true : false
+const thumb = 'https://telegra.ph/file/df7ebe6cec25ffdf41b56.jpg'
 
 evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
@@ -163,7 +164,9 @@ const url = q.replace("m.facebook" , "facebook")
         ]
 
         const buttonMessage = {
-                text: `
+                
+                image:{url:thumb} ,
+                caption: `
 ╔═══════【👸】═══════╗
                   𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
 *〘FACEBOOK VIDEO DOWNLOADER〙*
@@ -174,7 +177,7 @@ SELECT YOU NEED VIDEO QUALITY
 `,               
                footer: config.FOOTER,
                 buttons: buttons,
-                headerType: 1
+                headerType: 4
         }
 
         await message.client.sendMessage(message.jid, buttonMessage, {
@@ -340,7 +343,8 @@ evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, react:'📽️' ,deleteCommand: f
                 ]
         
                 const buttonMessage = {
-                        text: `
+                        image:{url:thumb} ,
+                        caption: `
         ╔═══════【👸】═══════╗
                           𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
         *〘FACEBOOK VIDEO DOWNLOADER〙*
@@ -351,7 +355,7 @@ evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, react:'📽️' ,deleteCommand: f
         `,               
                        footer: config.FOOTER,
                         buttons: buttons,
-                        headerType: 1
+                        headerType: 4
                 }
         
                 await message.client.sendMessage(message.jid, buttonMessage, {
