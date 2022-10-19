@@ -16,10 +16,11 @@ const QUEEN = config.WORKTYPE == 'public' ? true : ''
 const DIANA = config.WORKTYPE == 'private' ? true : false
 
 evt.getCMD({pattern: 'removebg$', fromMe: QUEEN, react:'🌅' ,deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
+    if (message.reply_message === false || message.reply_message.image === false)  await message.react("❗");
 
     if (message.reply_message === false || message.reply_message.image === false) return await message.client.sendMessage(message.jid, {text:Lang.NEED_PHOTO}, {quoted: message.data} );  
 
-    await message.client.sendMessage(message.jid, {text:Lang.RBGING }, {quoted: message.data} );
+   REMOVING = await message.client.sendMessage(message.jid, {text:Lang.RBGING }, {quoted: message.data} );
 
 var location = await downloadMediaMessage({key: { remoteJid: message.reply_message.jid, id: message.reply_message.id},message: message.reply_message.data.quotedMessage});
 await writeFile( imglocate , location )  
@@ -44,16 +45,17 @@ await pipeline(
 var bufimg = Buffer.from(fs.readFileSync(imglocate))
 
 await message.client.sendMessage(message.jid, { image : {url: "removeback.png"}, jpegThumbnail: bufimg , caption: config.CAPTION} ,{quoted: message.data} );
+message.delete(REMOVING)
 await fs.unlinkSync("removeback.png")
 await fs.unlinkSync(imglocate)
 
 
 })) 
 evt.getCMD({pattern: 'removebg$', fromMe: DIANA, react:'🌅' ,deleteCommand: false, desc: Lang.REMOVEBG_DESC }, (async (message, match) => {
-
+    if (message.reply_message === false || message.reply_message.image === false) await message.react("❗");
     if (message.reply_message === false || message.reply_message.image === false) return await message.client.sendMessage(message.jid, {text:Lang.NEED_PHOTO}, {quoted: message.data} );  
 
-    await message.client.sendMessage(message.jid, {text:Lang.RBGING }, {quoted: message.data} );
+   REMOVING = await message.client.sendMessage(message.jid, {text:Lang.RBGING }, {quoted: message.data} );
 
 var location = await downloadMediaMessage({key: { remoteJid: message.reply_message.jid, id: message.reply_message.id},message: message.reply_message.data.quotedMessage});
 await writeFile( imglocate , location )  
@@ -78,6 +80,7 @@ await pipeline(
 var bufimg = Buffer.from(fs.readFileSync(imglocate))
 
 await message.client.sendMessage(message.jid, { image : {url: "removeback.png"}, jpegThumbnail: bufimg , caption: config.CAPTION} ,{quoted: message.data} );
+message.delete(REMOVING)
 await fs.unlinkSync("removeback.png")
 await fs.unlinkSync(imglocate)
 

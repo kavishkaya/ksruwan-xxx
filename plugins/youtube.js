@@ -8,11 +8,13 @@ const QUEEN = config.WORKTYPE == 'public' ? true : ''
 const DIANA = config.WORKTYPE == 'private' ? true : false
 
 diana.getCMD({pattern: 'yt (.*)', fromMe: QUEEN, react:'🔍' ,deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+        if (match[1] === '')  await message.react("❗");
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
-        await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
+        SEARCHING = await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
         try {
                 var arama = await yts(match[1]);
         } catch {
+                if (match[1] === '')  await message.react("❗");
                 return await message.client.sendMessage(message.jid, {text: Lang.FAIL_YT }, {quoted: message.data})
         }
         arama = arama.videos
@@ -58,9 +60,10 @@ Select one to download video or song
                 sections
         }
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
+        message.delete(SEARCHING)
 }));
 diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: QUEEN, react:'📄' , deleteCommand: false,NoListCmd: true}, (async (message, match) => {
-
+        if (match[1] === '')  await message.react("❗");
         if (!match[1]) return 
 
 
@@ -91,8 +94,9 @@ SELECT YOU NEED RESULT
 }));
 
 diana.getCMD({pattern: 'yt (.*)', fromMe: DIANA, react:'🔍' , deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
+        if (match[1] === '')  await message.react("❗");
         if (!match[1]) return await message.client.sendMessage(message.jid, {text: Lang.NEED_YT_SEARCH }, {quoted: message.data})
-        await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
+        SEARCHING = await message.client.sendMessage(message.jid, { text: Lang.SEARCHING_YT }, {quoted: message.data})
         try {
                 var arama = await yts(match[1]);
         } catch {
@@ -141,9 +145,10 @@ Select one to download video or song
                 sections
         }
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
+        message.delete(SEARCHING)
 }));
 diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: DIANA, react:'📄' ,deleteCommand: false,NoListCmd: true}, (async (message, match) => {
-
+        if (match[1] === '')  await message.react("❗");
         if (!match[1]) return 
 
 

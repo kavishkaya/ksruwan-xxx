@@ -18,6 +18,7 @@ const QUEEN = config.WORKTYPE == 'public' ? true : ''
 const DIANA = config.WORKTYPE == 'private' ? true : false
  
 evt.getCMD({pattern: 'attp ?(.*)', fromMe: QUEEN, react:'✨' ,deleteCommand: false, desc: Lang.ATTP_DESC}, (async (message, match) => { 
+    if (match[1] === '')  await message.react("❗");
     if (match[1] === '') return await message.client.sendMessage(message.jid , { text:Lang.NEED_WORDS}, { quoted: message.data });
 
     var uri = encodeURI(match[1])
@@ -49,6 +50,7 @@ return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSyn
 
  }))
 evt.getCMD({pattern: 'attp ?(.*)', fromMe: DIANA, react:'✨' ,deleteCommand: false, desc: Lang.ATTP_DESC}, (async (message, match) => { 
+    if (match[1] === '')  await message.react("❗");
     if (match[1] === '') return await message.client.sendMessage(message.jid , { text:Lang.NEED_WORDS}, { quoted: message.data });
 
     var uri = encodeURI(match[1])

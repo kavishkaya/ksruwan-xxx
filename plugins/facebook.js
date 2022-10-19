@@ -11,7 +11,7 @@ const thumb = 'https://telegra.ph/file/df7ebe6cec25ffdf41b56.jpg'
 evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
 const q = match[1];
-
+if (match[1] === '')  await message.react("❗");
 if (!q) return await message.client.sendMessage(message.jid , { text: Lang.NEED_FB_URL }, { quoted: message.data } )
 
 const isfb = q.includes('facebook.com')? q.includes('facebook.com') : q.includes('fb.watch')? q.includes('fb.watch') : ''
@@ -20,7 +20,7 @@ if (!isfb) return await message.client.sendMessage(message.jid , { text: Lang.NO
 const url = q.replace("m.facebook" , "facebook")
 
 
-await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+DOWNLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
 
 
 
@@ -30,16 +30,19 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted
     try {
              const det = await fbdl(url)
              
-             await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+            UPLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
              await message.client.sendMessage(message.jid ,{ video: { url : det.medias[0].url }, caption: config.CAPTION } , { quoted: message.data })
+             message.delete(DOWNLOADINGFB)
+             message.delete(UPLOADINGFB)
           
         } catch(e) {
     try {
             const det3 = await savefrom(url)
             
-            await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+            UPLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
             await message.client.sendMessage(message.jid ,{ video: { url : det3.url[1].url }, caption: config.CAPTION } , { quoted: message.data })
-    
+            message.delete(DOWNLOADINGFB)
+            message.delete(UPLOADINGFB)
         }
     catch(e) {
     
@@ -50,14 +53,16 @@ await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted
 
        }
      
-     await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+       UPLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
      await message.client.sendMessage(message.jid ,{ video: { url : det2.SD_URL }, caption: config.CAPTION } , { quoted: message.data })
-      
+     message.delete(DOWNLOADINGFB)
+     message.delete(UPLOADINGFB)
       
       
     } catch(e) {
      await message.client.sendMessage(message.jid , { text: Lang.CANT_FIND_FB }, { quoted: message.data } )
-     
+     message.delete(DOWNLOADINGFB)
+
   }
   
   }}
@@ -73,7 +78,7 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteComm
       
       
     
-        
+    if (match[1] === '')  await message.react("❗");  
     if (!q) return await message.client.sendMessage(message.jid , { text: Lang.NEED_FB_URL }, { quoted: message.data } )
 
     const isfb = q.includes('facebook.com')? q.includes('facebook.com') : q.includes('fb.watch')? q.includes('fb.watch') : ''
@@ -81,16 +86,18 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteComm
     if (!isfb) return await message.client.sendMessage(message.jid , { text: Lang.NOT_FB_URL }, { quoted: message.data } )
     const url = q.replace("m.facebook" , "facebook")
 
-        await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+       DOWNLOADFB =  await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
   
        
         try {
               const det = await fbdl(url)
 
             
-               await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+             UPLOADINGFB = await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+             
                await message.client.sendMessage(message.jid  ,{ video: { url : det.medias[1].url }, caption: config.CAPTION } , { quoted: message.data })
-              
+               message.delete(DOWNLOADFB)
+               message.delete(UPLOADINGFB )
               
       
         
@@ -101,9 +108,11 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteComm
         const det3 = await savefrom(url)
 
         
-        await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
-        await message.client.sendMessage(message.jid  ,{ video: { url : det3.url[0].url }, caption: config.CAPTION } , { quoted: message.data })
+        UPLOADINGFB = await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
         
+        await message.client.sendMessage(message.jid  ,{ video: { url : det3.url[0].url }, caption: config.CAPTION } , { quoted: message.data })
+        message.delete(DOWNLOADFB)
+        message.delete(UPLOADINGFB )
         
         }
         catch(e) {
@@ -118,8 +127,11 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: QUEEN, react:'🎬' ,deleteComm
                
            }
     
-           await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+           UPLOADINGFB = await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+           
            await message.client.sendMessage(message.jid  ,{ video: { url : det2.HD_URL }, caption: config.CAPTION } , { quoted: message.data })
+           message.delete(DOWNLOADFB)
+           message.delete(UPLOADINGFB )
           
           
           
@@ -136,7 +148,7 @@ evt.getCMD({pattern: 'fb ?(.*)',fromMe: QUEEN, react:'📽️' ,deleteCommand: f
       
       
     
-        
+        if (match[1] === '')  await message.react("❗");       
 if (!q) return await message.client.sendMessage(message.jid , { text: Lang.NEED_FB_URL }, { quoted: message.data } )
 
 const isfb = q.includes('facebook.com')? q.includes('facebook.com') : q.includes('fb.watch')? q.includes('fb.watch') : ''
@@ -186,11 +198,10 @@ SELECT YOU NEED VIDEO QUALITY
 }));  
 
 
-
 evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
 
         const q = match[1];
-        
+        if (match[1] === '')  await message.react("❗");
         if (!q) return await message.client.sendMessage(message.jid , { text: Lang.NEED_FB_URL }, { quoted: message.data } )
         
         const isfb = q.includes('facebook.com')? q.includes('facebook.com') : q.includes('fb.watch')? q.includes('fb.watch') : ''
@@ -199,7 +210,7 @@ evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
         const url = q.replace("m.facebook" , "facebook")
         
         
-        await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+        DOWNLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
         
         
         
@@ -209,16 +220,19 @@ evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
             try {
                      const det = await fbdl(url)
                      
-                     await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+                    UPLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
                      await message.client.sendMessage(message.jid ,{ video: { url : det.medias[0].url }, caption: config.CAPTION } , { quoted: message.data })
+                     message.delete(DOWNLOADINGFB)
+                     message.delete(UPLOADINGFB)
                   
                 } catch(e) {
             try {
                     const det3 = await savefrom(url)
                     
-                    await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+                    UPLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
                     await message.client.sendMessage(message.jid ,{ video: { url : det3.url[1].url }, caption: config.CAPTION } , { quoted: message.data })
-            
+                    message.delete(DOWNLOADINGFB)
+                    message.delete(UPLOADINGFB)
                 }
             catch(e) {
             
@@ -229,14 +243,16 @@ evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
         
                }
              
-             await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+               UPLOADINGFB = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
              await message.client.sendMessage(message.jid ,{ video: { url : det2.SD_URL }, caption: config.CAPTION } , { quoted: message.data })
-              
+             message.delete(DOWNLOADINGFB)
+             message.delete(UPLOADINGFB)
               
               
             } catch(e) {
              await message.client.sendMessage(message.jid , { text: Lang.CANT_FIND_FB }, { quoted: message.data } )
-             
+             message.delete(DOWNLOADINGFB)
+        
           }
           
           }}
@@ -245,14 +261,14 @@ evt.getCMD({pattern: 'fabqsdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
           
         
         
-}));      
-evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+        }));
+        evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
         
             const q = match[1];
               
               
             
-                
+            if (match[1] === '')  await message.react("❗");  
             if (!q) return await message.client.sendMessage(message.jid , { text: Lang.NEED_FB_URL }, { quoted: message.data } )
         
             const isfb = q.includes('facebook.com')? q.includes('facebook.com') : q.includes('fb.watch')? q.includes('fb.watch') : ''
@@ -260,16 +276,18 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
             if (!isfb) return await message.client.sendMessage(message.jid , { text: Lang.NOT_FB_URL }, { quoted: message.data } )
             const url = q.replace("m.facebook" , "facebook")
         
-                await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+               DOWNLOADFB =  await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
           
                
                 try {
                       const det = await fbdl(url)
         
                     
-                       await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+                     UPLOADINGFB = await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+                     
                        await message.client.sendMessage(message.jid  ,{ video: { url : det.medias[1].url }, caption: config.CAPTION } , { quoted: message.data })
-                      
+                       message.delete(DOWNLOADFB)
+                       message.delete(UPLOADINGFB )
                       
               
                 
@@ -280,9 +298,11 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
                 const det3 = await savefrom(url)
         
                 
-                await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
-                await message.client.sendMessage(message.jid  ,{ video: { url : det3.url[0].url }, caption: config.CAPTION } , { quoted: message.data })
+                UPLOADINGFB = await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
                 
+                await message.client.sendMessage(message.jid  ,{ video: { url : det3.url[0].url }, caption: config.CAPTION } , { quoted: message.data })
+                message.delete(DOWNLOADFB)
+                message.delete(UPLOADINGFB )
                 
                 }
                 catch(e) {
@@ -297,8 +317,11 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
                        
                    }
             
-                   await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+                   UPLOADINGFB = await message.client.sendMessage(message.jid  , { text: config.VIDEOU }, { quoted: message.data } )
+                   
                    await message.client.sendMessage(message.jid  ,{ video: { url : det2.HD_URL }, caption: config.CAPTION } , { quoted: message.data })
+                   message.delete(DOWNLOADFB)
+                   message.delete(UPLOADINGFB )
                   
                   
                   
@@ -308,14 +331,14 @@ evt.getCMD({pattern: 'fabqhdvid ?(.*)' , fromMe: DIANA, react:'🎬' ,deleteComm
                 
               }}}
             
-}));     
-evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, react:'📽️' ,deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
+        }));
+        evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, react:'📽️' ,deleteCommand: false, desc: Lang.FB_DESC }, (async (message, match) => {
         
                 const q = match[1];
               
               
             
-                
+                if (match[1] === '')  await message.react("❗");       
         if (!q) return await message.client.sendMessage(message.jid , { text: Lang.NEED_FB_URL }, { quoted: message.data } )
         
         const isfb = q.includes('facebook.com')? q.includes('facebook.com') : q.includes('fb.watch')? q.includes('fb.watch') : ''
@@ -343,6 +366,7 @@ evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, react:'📽️' ,deleteCommand: f
                 ]
         
                 const buttonMessage = {
+                        
                         image:{url:thumb} ,
                         caption: `
         ╔═══════【👸】═══════╗
@@ -361,5 +385,5 @@ evt.getCMD({pattern: 'fb ?(.*)',fromMe: DIANA, react:'📽️' ,deleteCommand: f
                 await message.client.sendMessage(message.jid, buttonMessage, {
                         quoted: message.data
                 })
-}));  
+        }));  
         

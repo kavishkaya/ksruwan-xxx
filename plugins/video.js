@@ -11,7 +11,7 @@ const QUEEN = config.WORKTYPE == 'public' ? true : ''
 const DIANA = config.WORKTYPE == 'private' ? true : false
 
 evt.getCMD({pattern: 'video ?(.*)', fromMe: QUEEN, react:'📽️' ,deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
-
+    if (match[1] === '')  await message.react("❗");
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_VIDEO }, { quoted: message.data } )   
 try{
     
@@ -113,40 +113,46 @@ const video = await yts( { videoId: vidid } )
 }));
 evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
 
-
+    if (match[1] === '')  await message.react("❗");
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
 if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
 let ytdlvid = await ytv360(match[1])
 
-await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
-await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+DOWNLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+UPLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+message.delete(DOWNLOADINGVIDEO)
 await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
+message.delete(UPLOADINGVIDEO)
 }));
 evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
-
+    if (match[1] === '')  await message.react("❗");
 
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
 if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
 let ytdlvid = await ytv480(match[1])
 
-await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
-await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+DOWNLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+UPLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+message.delete(DOWNLOADINGVIDEO)
 await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
+message.delete(UPLOADINGVIDEO)
 }));
 evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: QUEEN, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
 
-
+    if (match[1] === '')  await message.react("❗");
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
 if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
 let ytdlvid = await ytv720(match[1])
 
-await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
-await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+DOWNLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+UPLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+message.delete(DOWNLOADINGVIDEO)
 await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
+message.delete(UPLOADINGVIDEO)
 }));
 
 evt.getCMD({pattern: 'video ?(.*)', fromMe: DIANA, react:'📽️' ,deleteCommand: false, desc: Lang.VIDEO_DESC }, (async (message, match) => {
-
+    if (match[1] === '')  await message.react("❗");
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_VIDEO }, { quoted: message.data } )   
     try{
         
@@ -246,37 +252,43 @@ evt.getCMD({pattern: 'video ?(.*)', fromMe: DIANA, react:'📽️' ,deleteComman
     }
     }
 }));
-    evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
+evt.getCMD({pattern: 'btdown360pvideo ?(.*)', fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
     
-    
+        if (match[1] === '')  await message.react("❗");
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
     let ytdlvid = await ytv360(match[1])
     
-    await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
-    await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+    DOWNLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+    UPLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+    message.delete(DOWNLOADINGVIDEO)
     await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
+message.delete(UPLOADINGVIDEO)
 }));
     evt.getCMD({pattern: 'btdown480pvideo ?(.*)', fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
-    
+        if (match[1] === '')  await message.react("❗");
     
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
     let ytdlvid = await ytv480(match[1])
     
-    await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
-    await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+    DOWNLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+    UPLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+    message.delete(DOWNLOADINGVIDEO)
     await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
+message.delete(UPLOADINGVIDEO)
 }));
     evt.getCMD({pattern: 'btdown720pvideo ?(.*)', fromMe: DIANA, react:'🎬' ,deleteCommand: false, NoListCmd: true}, (async (message, match) => {
-    
+        if (match[1] === '')  await message.react("❗");
     
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_VIDEO }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_VIDEO_URL }, { quoted: message.data } )
     let ytdlvid = await ytv720(match[1])
     
-    await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
-    await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+    DOWNLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOD }, { quoted: message.data } )
+    UPLOADINGVIDEO = await message.client.sendMessage(message.jid , { text: config.VIDEOU }, { quoted: message.data } )
+    message.delete(DOWNLOADINGVIDEO)
     await message.client.sendMessage(message.jid , { video: { url : ytdlvid.url }, caption: config.CAPTION } , { quoted: message.data })
+message.delete(UPLOADINGVIDEO)
 }));
 

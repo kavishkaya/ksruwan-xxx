@@ -14,11 +14,11 @@ const QUEEN = config.WORKTYPE == 'public' ? true : ''
 const DIANA = config.WORKTYPE == 'private' ? true : false
 
 evt.getCMD({pattern: 'sticker$', fromMe: QUEEN, react:'✨' ,deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
-
+    if (message.reply_message === false) await message.react("❗");
     if (message.reply_message === false) return await message.client.sendMessage(message.jid , {text: Lang.NEED_REPLY} , { quoted: message.data } );
 
 
-    await message.client.sendMessage(message.jid , {text: Lang.CREATING_STICKER} , { quoted: message.data } );
+   DOWNLOADINGST =  await message.client.sendMessage(message.jid , {text: Lang.CREATING_STICKER} , { quoted: message.data } );
     
     
    
@@ -55,6 +55,7 @@ const sticker = new Sticker(locate, {
 
 
 await sticker.toFile('/root/queendianamd/stic.webp')
+message.delete(DOWNLOADINGST)
 return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSync('/root/queendianamd/stic.webp') },{ quoted: message.data });
 
         }
@@ -89,17 +90,18 @@ const sticker = new Sticker(locate, {
 
 
 await sticker.toFile('/root/queendianamd/stic.webp')
+message.delete(DOWNLOADINGST)
 return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSync('/root/queendianamd/stic.webp') },{ quoted: message.data });
 
 
 
 }))
 evt.getCMD({pattern: 'sticker$', fromMe: DIANA, react:'✨' ,deleteCommand: false, desc: Lang.STICKER_DESC }, (async (message, match) => {
-
+    if (message.reply_message === false) await message.react("❗");
     if (message.reply_message === false) return await message.client.sendMessage(message.jid , {text: Lang.NEED_REPLY} , { quoted: message.data } );
 
 
-    await message.client.sendMessage(message.jid , {text: Lang.CREATING_STICKER} , { quoted: message.data } );
+    DOWNLOADINGST = await message.client.sendMessage(message.jid , {text: Lang.CREATING_STICKER} , { quoted: message.data } );
     
     
    
@@ -136,6 +138,7 @@ const sticker = new Sticker(locate, {
 
 
 await sticker.toFile('/root/queendianamd/stic.webp')
+message.delete(DOWNLOADINGST)
 return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSync('/root/queendianamd/stic.webp') },{ quoted: message.data });
 
         }
@@ -170,6 +173,7 @@ const sticker = new Sticker(locate, {
 
 
 await sticker.toFile('/root/queendianamd/stic.webp')
+message.delete(DOWNLOADINGST)
 return await message.client.sendMessage( message.jid,  { sticker: fs.readFileSync('/root/queendianamd/stic.webp') },{ quoted: message.data });
 
 

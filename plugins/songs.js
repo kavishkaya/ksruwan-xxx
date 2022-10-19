@@ -12,7 +12,7 @@ const DIANA = config.WORKTYPE == 'private' ? true : false
 
 
 evt.getCMD({pattern: 'song ?(.*)', fromMe: QUEEN , react:'🎵' ,deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
-
+if (match[1] === '')  await message.react("❗");
 if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_SONG }, { quoted: message.data } )   
 try{
     
@@ -110,36 +110,39 @@ const video = await yts( { videoId: vidid } )
 }
 }));
 evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: QUEEN , react:'📁' ,deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
-   
+    if (match[1] === '')  await message.react("❗");   
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
     
-    await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
+    DOWNLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
 
     let docsong = await yta(match[1])
         
-     await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+    UPLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+    message.delete(DOWNLOADINGSONG)
     await message.client.sendMessage(message.jid , { document : { url : docsong.url  } , mimetype : 'audio/mpeg' , fileName : docsong.title + '.mp3' } , { quoted: message.data })
-   
+    message.delete(UPLOADINGSONG)
 
 }));
 evt.getCMD({pattern: 'acsong ?(.*)', fromMe: QUEEN , react:'🎧' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
+    if (match[1] === '')  await message.react("❗");
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
     if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
     
-    await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
+    DOWNLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
 
     let docsong = await yta(match[1])
      
-    await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+   UPLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+   message.delete(DOWNLOADINGSONG)
     await message.client.sendMessage(message.jid , { audio: { url: docsong.url }, mimetype: 'audio/mp4' } , { quoted: message.data })
-   
+    message.delete(UPLOADINGSONG)
 
 }));
 
 
 evt.getCMD({pattern: 'song ?(.*)', fromMe: DIANA, react:'🎵' ,deleteCommand: false, desc: Lang.SONG_DESC }, (async (message, match) => {
-
+    if (match[1] === '')  await message.react("❗");
     if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_SONG }, { quoted: message.data } )   
     try{
         
@@ -237,30 +240,33 @@ evt.getCMD({pattern: 'song ?(.*)', fromMe: DIANA, react:'🎵' ,deleteCommand: f
     }
 }));
 evt.getCMD({pattern: 'dcsong ?(.*)', fromMe: DIANA, react:'📁' ,deleteCommand: false,  NoListCmd: true }, (async (message, match) => {
-       
+    if (match[1] === '')  await message.react("❗");
         if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
         if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
         
-        await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
+        DOWNLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
     
         let docsong = await yta(match[1])
             
-         await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+        UPLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+        message.delete(DOWNLOADINGSONG)
         await message.client.sendMessage(message.jid , { document : { url : docsong.url  } , mimetype : 'audio/mpeg' , fileName : docsong.title + '.mp3' } , { quoted: message.data })
-       
+        message.delete(UPLOADINGSONG)
     
 }));
 evt.getCMD({pattern: 'acsong ?(.*)', fromMe: DIANA, react:'🎧' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
-        if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
+    if (match[1] === '')  await message.react("❗");
+    if (!match[1]) return await message.client.sendMessage(message.jid , { text: Lang.NEED_URL_SONG }, { quoted: message.data } )
         if (!match[1].includes('youtu')) return await message.client.sendMessage(message.jid , { text: Lang.ONLY_YT_SONG_URL }, { quoted: message.data } )
         
-        await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
+        DOWNLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGD }, { quoted: message.data } )
     
         let docsong = await yta(match[1])
          
-        await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+       UPLOADINGSONG = await message.client.sendMessage(message.jid , { text: config.SONGU }, { quoted: message.data } )
+       message.delete(DOWNLOADINGSONG)
         await message.client.sendMessage(message.jid , { audio: { url: docsong.url }, mimetype: 'audio/mp4' } , { quoted: message.data })
-       
+        message.delete(UPLOADINGSONG)
     
 }));
     
