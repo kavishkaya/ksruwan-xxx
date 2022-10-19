@@ -4,6 +4,7 @@ const config = require('../config');
 
 
 async function StringSession(id){
+  if ( fs.existsSync('/root/queendianamd/DIANA/diaAuth.json') ) return console.log('📶️ Logging to Whatsapp...');
  try{
 const Url = id.replace("DIANA;;;" , "") 
 const tey = Buffer.from(Url, 'base64');
