@@ -12,7 +12,7 @@ async function isAdmin(message, user = message.client.user.id) {
 function mentionjid(jid){ return "@"+jid.split("@")[0].split(":")[0]; }
 
 
-evt.getCMD({pattern: 'kick ?(.*)', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.KICK_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'kick ?(.*)', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.KICK_DESC}, (async (message, match) => {
     
     if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND})
 
@@ -27,7 +27,7 @@ evt.getCMD({pattern: 'kick ?(.*)', fromMe: true, onlyGroup: true , deleteCommand
     await message.client.sendMessage(message.jid, { text: mentionjid(user) + config.BANMSG , mentions: [user] })
     await message.client.groupParticipantsUpdate(message.jid, [user], "remove" )
 }))
-evt.getCMD({pattern: 'add ?(.*)', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.ADD_DESC }, (async (message, match) => {
+evt.getCMD({pattern: 'add ?(.*)', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.ADD_DESC }, (async (message, match) => {
     if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND})
     var admin = await isAdmin(message);
     if (!admin) return await message.client.sendMessage(message.jid, { text: Lang.NOT_ADMIN })
@@ -44,7 +44,7 @@ evt.getCMD({pattern: 'add ?(.*)', fromMe: true, onlyGroup: true , deleteCommand:
     await message.client.groupParticipantsUpdate(message.jid, jids, "add")
     await message.client.sendMessage(message.jid, { text: msg+' '+ config.ADDMSG , mentions: jids })
 }))
-evt.getCMD({pattern: 'promote', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.PROMOTE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'promote', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.PROMOTE_DESC}, (async (message, match) => {
         const user = message.mention[0] || message.reply_message.jid
         if (!user) return await message.reply(Lang.NEED_USER)
         if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND })
@@ -53,11 +53,11 @@ evt.getCMD({pattern: 'promote', fromMe: true, onlyGroup: true , deleteCommand: f
         await message.client.sendMessage(message.jid, { text: mentionjid(user) + config.PROMOTEMSG , mentions: [user] })
         await message.client.groupParticipantsUpdate(message.jid, [user], "promote")
 }))     
-evt.getCMD({pattern: 'leave', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.LEAVE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'leave', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.LEAVE_DESC}, (async (message, match) => {
         await message.client.sendMessage(message.jid, { text: config.KICKMEMSG })
         return await message.client.groupLeave(message.jid);
 }))
-evt.getCMD({pattern: 'demote', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.DEMOTE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'demote', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.DEMOTE_DESC}, (async (message, match) => {
         if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND })
         const user = message.mention[0] || message.reply_message.jid
         if (!user) return await message.reply(Lang.NEED_USER)
@@ -66,14 +66,14 @@ evt.getCMD({pattern: 'demote', fromMe: true, onlyGroup: true , deleteCommand: fa
         await message.client.sendMessage(message.jid, { text: mentionjid(user) + config.DEMOTEMSG , mentions: [user] })
         await message.client.groupParticipantsUpdate(message.jid, [message.reply_message.jid], "demote")
 }))     
-evt.getCMD({pattern: 'mute', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.MUTE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'mute', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.MUTE_DESC}, (async (message, match) => {
             if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND })
             var admin = await isAdmin(message);
             if (!admin) return await message.reply(Lang.NOT_ADMIN)
             await message.client.groupSettingUpdate(message.jid, 'announcement')
         await message.client.sendMessage(message.jid, { text: config.MUTEMSG })
 }))   
-evt.getCMD({pattern: 'unmute', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.UNMUTE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'unmute', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.UNMUTE_DESC}, (async (message, match) => {
             if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND })
             var admin = await isAdmin(message);
             if (!admin) return await message.reply(Lang.NOT_ADMIN)
@@ -81,18 +81,18 @@ evt.getCMD({pattern: 'unmute', fromMe: true, onlyGroup: true , deleteCommand: fa
         await message.client.sendMessage(message.jid, { text: config.UNMUTEMSG })
 
 }))
-evt.getCMD({pattern: 'jid', fromMe: true,  deleteCommand: false, desc: Lang.JID_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'jid', fromMe: true, react: '✅' ,  deleteCommand: false, desc: Lang.JID_DESC}, (async (message, match) => {
         var jid = message.reply_message.jid || message.jid
         await message.reply(jid)
 }))   
-evt.getCMD({pattern: 'invite', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.INVITE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'invite', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.INVITE_DESC}, (async (message, match) => {
         if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND })
         var admin = await isAdmin(message);
         if (!admin) return await message.reply(Lang.NOT_ADMIN)
         var code = await message.client.groupInviteCode(message.jid)
         await message.client.sendMessage(message.jid, { text: "https://chat.whatsapp.com/"+code })
 }))      
-evt.getCMD({pattern: 'revoke', fromMe: true, onlyGroup: true , deleteCommand: false, desc: Lang.REVOKE_DESC}, (async (message, match) => {
+evt.getCMD({pattern: 'revoke', fromMe: true, react: '✅' , onlyGroup: true , deleteCommand: false, desc: Lang.REVOKE_DESC}, (async (message, match) => {
         if (!message.jid.endsWith('@g.us')) return await message.client.sendMessage(message.jid, { text: Lang.GROUP_COMMAND })
         var admin = await isAdmin(message);
         if (!admin) return await message.reply(Lang.NOT_ADMIN)
