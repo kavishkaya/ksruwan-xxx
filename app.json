@@ -14,7 +14,7 @@
 "DIANA_SESSION": {"description": "if you don't have Bot session, scan qr using below url \n https://replit.com/@kavishkaya/Queen-Diana-MD?v=1?outputonly=1&lite=1","value": "" , "required": true },
     
 
-
+"MENU_LOGO": {"description": "you can change your menu logo photo","value": "https://telegra.ph/file/3217c19d381ae34b38012.jpg" , "required": false },
 "VIDEO_DOWNLOADING": {"description": "You can change video downloading massage using this","value": "*🎭Downloading Your Video*" , "required": false },
 "VIDEO_UPLOADING": {"description": "You can change video uploading massage using this","value": "*🚀Uploading Your Video*" , "required": false },
 "SONG_DOWNLOADING": {"description": "You can change music downloading massage using this","value": "*◦•●◉✿Downloading Your Song✿◉●•◦*" , "required": false },
