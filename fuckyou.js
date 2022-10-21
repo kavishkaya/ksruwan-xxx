@@ -135,7 +135,7 @@ plugins.map(async (plugin) => {
 
 
 
-
+        try{
 	             fs.readdirSync('./plugins')
                 .forEach(plugin => {
                 if (path.extname(plugin)
@@ -143,6 +143,15 @@ plugins.map(async (plugin) => {
                     require('./plugins/' + plugin);
                 }
             });   
+
+        }
+
+
+     catch(error) {
+        console.log('❌ Some Internal Plugins Are Corrupted: ' + plugin.dataValues.name)
+        console.log(error)
+    
+        }
 
 	    console.log('✅ Plugin installed successfully');
 
