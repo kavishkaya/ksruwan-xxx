@@ -5,7 +5,6 @@ const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
 const fs = require('fs');
 const axios = require('axios');
 const Language = require('../language');
-const { require } = require('yargs');
 const QUEEN = config.WORKTYPE == 'public' ? true : ''
 const DIANA = config.WORKTYPE == 'private' ? true : false
 
