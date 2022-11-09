@@ -23,8 +23,6 @@ diana.getCMD({pattern: 'yt (.*)', fromMe: QUEEN, react:'🔍' ,deleteCommand: fa
                 videos.push({
                         title: index + 1 ,
                         description: `
-╔═══════【👸】═══════╗
-*〘YOUTUBE SEARCH RESULTS〙*
 *🧚Title :* _${arama[index].title}_
 *📎Link :* _${arama[index].url}_
 *⏰Duration :* _${arama[index].timestamp}_
@@ -32,7 +30,7 @@ diana.getCMD({pattern: 'yt (.*)', fromMe: QUEEN, react:'🔍' ,deleteCommand: fa
 *📅Time ago :* _${arama[index].ago}_
 *🌐Channel :* _${arama[index].author.name}_
 *🖇Channel Url :* _${arama[index].author.url}_
-╚════════●●●════════╝  
+ 
 `,
                         rowId: `.upvideosongselect ${arama[index].url}`
                 });
@@ -108,8 +106,7 @@ diana.getCMD({pattern: 'yt (.*)', fromMe: DIANA, react:'🔍' , deleteCommand: f
                 videos.push({
                         title: index + 1 ,
                         description: `
-╔═══════【👸】═══════╗
-*〘YOUTUBE SEARCH RESULTS〙*
+
 *🧚Title :* _${arama[index].title}_
 *📎Link :* _${arama[index].url}_
 *⏰Duration :* _${arama[index].timestamp}_
@@ -117,7 +114,7 @@ diana.getCMD({pattern: 'yt (.*)', fromMe: DIANA, react:'🔍' , deleteCommand: f
 *📅Time ago :* _${arama[index].ago}_
 *🌐Channel :* _${arama[index].author.name}_
 *🖇Channel Url :* _${arama[index].author.url}_
-╚════════●●●════════╝  
+
 `,
                         rowId: `.upvideosongselect ${arama[index].url}`
                 });
