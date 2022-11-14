@@ -60,36 +60,7 @@ Select one to download video or song
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
         message.delete(SEARCHING)
 }));
-diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: QUEEN, react:'📄' , deleteCommand: false,NoListCmd: true}, (async (message, match) => {
-        if (match[1] === '')  await message.react("❗");
-        if (!match[1]) return 
 
-
-        const link = match[1]
-
-        const buttons = [
-                {buttonId: prefix + 'video ' + link,buttonText: { displayText: '🎥 VIDEO'},type: 1},
-                {buttonId: prefix + 'song ' + link,buttonText: {displayText: '🎵 SONG'},type: 1}]
-
-        const buttonMessage = {
-                text: `
-╔═══════【👸】═══════╗
-                  𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
-*〘YOUTUBE  DOWNLOADER〙*
-
-SELECT YOU NEED RESULT 
-     TYPE HERE 
-
-
-╚════════●●●════════╝    
-`,
-                footer: config.FOOTER,
-                buttons: buttons,
-                headerType: 1
-        }
-
-        await message.client.sendMessage(message.jid, buttonMessage, {quoted: message.data})
-}));
 
 diana.getCMD({pattern: 'yt (.*)', fromMe: DIANA, react:'🔍' , deleteCommand: false, desc: Lang.YT_DESC }, (async (message, match) => {
         if (match[1] === '')  await message.react("❗");
@@ -143,34 +114,4 @@ Select one to download video or song
         }
         await message.client.sendMessage(message.jid, listMessage , {quoted: message.data})
         message.delete(SEARCHING)
-}));
-diana.getCMD({ pattern: 'upvideosongselect ?(.*)',fromMe: DIANA, react:'📄' ,deleteCommand: false,NoListCmd: true}, (async (message, match) => {
-        if (match[1] === '')  await message.react("❗");
-        if (!match[1]) return 
-
-
-        const link = match[1]
-
-        const buttons = [
-                {buttonId: prefix + 'video ' + link,buttonText: { displayText: '🎥 VIDEO'},type: 1},
-                {buttonId: prefix + 'song ' + link,buttonText: {displayText: '🎵 SONG'},type: 1}]
-
-        const buttonMessage = {
-                text: `
-╔═══════【👸】═══════╗
-                  𝚀𝚄𝙴𝙴𝙽 𝙳𝙸𝙰𝙽𝙰
-*〘YOUTUBE  DOWNLOADER〙*
-
-SELECT YOU NEED RESULT 
-     TYPE HERE 
-
-
-╚════════●●●════════╝    
-`,
-                footer: config.FOOTER,
-                buttons: buttons,
-                headerType: 1
-        }
-
-        await message.client.sendMessage(message.jid, buttonMessage, {quoted: message.data})
 }));
