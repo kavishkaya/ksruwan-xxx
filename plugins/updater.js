@@ -32,7 +32,7 @@ await  message.client.sendMessage(message.jid , { text: Lang.UPDATE }, { quoted:
             try {
                 var app = await heroku.get('/apps/' + Config.HEROKU.APP_NAME)
             } catch {
-                message.client.sendMessage(message.jid , { text: Lang.INVALID_HEROKU + "\n\n" + IN_AF }, { quoted: message.data } );
+                message.client.sendMessage(message.jid , { text: Lang.INVALID_HEROKU + "\n\n" + Lang.IN_AF }, { quoted: message.data } );
             }
             message.client.sendMessage(message.jid , { text: Lang.UPDATING }, { quoted: message.data } );
 
