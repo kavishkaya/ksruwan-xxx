@@ -289,7 +289,9 @@ if (command.react !== ''){
 Diamymsg.client.sendMessage(Diamymsg.jid, {  react: { text: command.react ,  key:  Diamymsg.data.key } }) 
 }
 }catch(err){
+console.log("=======================")
 console.log(err)
+console.log("=======================")
 }	
 
                  try {
