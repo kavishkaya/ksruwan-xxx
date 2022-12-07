@@ -214,7 +214,7 @@ plist.push({
         await message.client.sendMessage(message.jid , listMessage) 
 }));
 evt.getCMD({pattern: 'delmyinstallpluginsnow(?: |$)(.*)' , fromMe: true, react:'✅' ,deleteCommand: false, NoListCmd: true }, (async (message, match) => {
-
+   
     if (match[1] === '') return await message.client.sendMessage(message.jid,{text: Lang.NEED_PLUGIN});
     if (!match[1].startsWith('__')) match[1] = '__' + match[1];
     try {
@@ -226,12 +226,9 @@ evt.getCMD({pattern: 'delmyinstallpluginsnow(?: |$)(.*)' , fromMe: true, react:'
             delete require.cache[require.resolve('./' + match[1] + '.js')]
             fs.unlinkSync('./plugins/' + match[1] + '.js');
             await message.client.sendMessage(message.jid,{text: Lang.DELETED});        
-            await new Promise(r => setTimeout(r, 1000));  
             await message.client.sendMessage(message.jid, {text: NLang.AFTER_UPDATE});
-            console.log(baseURI);
-            await heroku.delete(baseURI + '/dynos').catch(async (error) => {
-                await message.client.sendMessage(message.jid, {text:error.message});
-            });
+            process.exit(0)
+
         }
     } catch (errormsg) { return await message.client.sendMessage(message.jid,{text: Lang.NOT_FOUND_PLUGIN}) }
 }));
