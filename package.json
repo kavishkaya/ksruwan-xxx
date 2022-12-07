@@ -43,6 +43,7 @@
        "sqlite3": "^5.0.0",
         "g-i-s": "^2.1.6",
         "google-it": "^1.6.2",
+        "@blackamda/song_video_dl": "^1.0.0",
         "hxz-api": "^1.0.1",
         "human-readable": "^0.2.1",
         "jimp": "^0.16.1",
