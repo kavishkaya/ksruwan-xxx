@@ -71,13 +71,13 @@ Array.prototype.remove = function() {
 
 
 
-//const StringSession = require('./DIANA/StringSession');
+const StringSession = require('./DIANA/StringSession');
 
 
 async function DIANASTT() {
 
 
-//await StringSession(config.SESSION);
+await StringSession(config.SESSION);
 
 	
 	
