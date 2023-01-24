@@ -81,7 +81,7 @@ async function DIANASTT() {
 
 	
 	
-const { state, saveState } = useSingleFileAuthState('/root/queendianamd/DIANA/diaAuth.json');
+const { state, saveState } = useSingleFileAuthState('./diaAuth.json');
 await config.DATABASE.sync();
 
 console.log('🔄 Connecting to WhatsApp ...');
