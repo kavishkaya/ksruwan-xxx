@@ -1,4 +1,4 @@
-const fs = require("fs");
+/*const fs = require("fs");
 var { File } = require("megajs");
 const config = require('../config');
 
@@ -26,3 +26,4 @@ fs.writeFileSync('/root/queendianamd/DIANA/diaAuth.json', data.toString())
 
 module.exports = StringSession;
 
+*/
