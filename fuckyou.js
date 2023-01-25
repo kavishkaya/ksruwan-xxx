@@ -97,7 +97,7 @@ conn.ev.on('connection.update', async(update) => {
 
     if (connection === 'close') {
         if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
-            connectToWA()
+            DIANASTT()
         }
     }else if (connection === 'open') {
         console.log('conected')
