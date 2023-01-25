@@ -149,7 +149,7 @@ plugins.map(async (plugin) => {
 
 
      catch(error) {
-        console.log('❌ Some Internal Plugins Are Corrupted: ' + plugin.dataValues.name)
+        console.log('❌ Some Internal Plugins Are Corrupted:')
         console.log(error)
     
         }
