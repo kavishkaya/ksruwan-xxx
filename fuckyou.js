@@ -38,7 +38,7 @@ fs.readdirSync('./plugins/sql/').forEach(plugin => {
 const plugindb = require('./plugins/sql/plugin');
 const { Console } = require('console');
 
-
+/*
 String.prototype.format = function() {
     var i = 0,
         args = arguments;
@@ -70,7 +70,7 @@ Array.prototype.remove = function() {
 };
 
 
-
+*/
 //const StringSession = require('./DIANA/StringSession');
 
 
