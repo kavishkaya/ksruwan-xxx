@@ -5,6 +5,7 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 function convertToBool(text, fault = 'true') {
     return text === fault ? true : false;
 }
+process.env['DATABASE_URL'] = 'postgres://kaviyaah_queen_diana_user:WNWHbZLWvEi1Gyp1wo86AYuUZJMHCjtO@dpg-ce5vj62rrk071o4j2a5g-a.frankfurt-postgres.render.com/kaviyaah_queen_diana'
 
 DATABASE_URL = process.env.DATABASE_URL === undefined ? './diana.db' : process.env.DATABASE_URL;
 DEBUG = process.env.DEBUG === undefined ? false : convertToBool(process.env.DEBUG);
