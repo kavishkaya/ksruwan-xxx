@@ -31,7 +31,7 @@ module.exports = {
     AUTOBIO: process.env.AUTO_BIO === undefined ? 'false' : process.env.AUTO_BIO,
     OWNERNAME: process.env.OWNER_NAME === undefined ? 'default' : process.env.OWNER_NAME,
     
-    LANG: process.env.LANGUAGE === undefined ? 'TR' : process.env.LANGUAGE.toUpperCase(),
+    LANG: process.env.LANGUAGE === undefined ? 'EN' : process.env.LANGUAGE.toUpperCase(),
     
     ALIVEMSG: process.env.ALIVE_MESSAGE === undefined ? 'default' : process.env.ALIVE_MESSAGE,
     ALIVEIMG: process.env.ALIVE_LOGO === undefined ? 'default' : process.env.ALIVE_LOGO,
