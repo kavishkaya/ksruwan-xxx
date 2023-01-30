@@ -1,4 +1,4 @@
-require("./index");
+//require("./index");
 const { default: makeWASocket, 
 	useSingleFileAuthState,
 	DisconnectReason,
